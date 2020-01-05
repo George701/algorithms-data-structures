@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const addUpToFirstOption = (n) => {
+        let result = 0;
+        for (let i = 1; i <= n; i++) {
+            result += i;
+        }
+        return result;
+    };
+
+    const addUpToSecondOption = (n) => n * (n + 1) / 2;
+
+    let t1 = performance.now();
+    addUpToFirstOption(1000000000);
+    let t2 = performance.now();
+
+    console.log(`Time Elapsed for first option: ${(t2 - t1) / 1000} seconds.`);
+
+    let t3 = performance.now();
+    addUpToSecondOption(1000000000);
+    let t4 = performance.now();
+
+    console.log(`Time Elapsed for second option: ${(t4 - t3) / 1000} seconds.`);
+</script>
+
+</html>
