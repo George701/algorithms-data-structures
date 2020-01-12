@@ -5,21 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Add up To</title>
 </head>
 
 <body>
-
+    <h1>Add up to</h1>
+    <h3>open the console</h3>
 </body>
 <script>
+    // n-times operations; which means that all operations in this function will add values and assign it n-times
+    // Number of operations is (eventually) bounded by multiple of n (say, 10n)
+    // O(n)
     const addUpToFirstOption = (n) => {
         let result = 0;
+        // operations: comparing and adding
         for (let i = 1; i <= n; i++) {
+            // operations: adding and assinging
             result += i;
         }
         return result;
     };
 
+    // In this function there is 3 operation (multiply, add and divide)
+    // O(1) - because there are always three operations. It is not reflected on the runtime
     const addUpToSecondOption = (n) => n * (n + 1) / 2;
 
     let t1 = performance.now();

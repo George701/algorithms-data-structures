@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Print all Pairs</title>
+</head>
+
+<body>
+    <h1>Print all Pairs</h1>
+    <h3>open the console</h3>
+</body>
+<script>
+    // O(n.pow(2)) because it is nested function
+    const printAllPairs = (n) => {
+        // O(n)
+        for (let i = 0; i < n; i++) {
+            // O(n)
+            for (let j = 0; j < n; j++) {
+                console.log(i, j);
+            }
+        }
+    }
+
+    printAllPairs(5);
+</script>
+
+</html>

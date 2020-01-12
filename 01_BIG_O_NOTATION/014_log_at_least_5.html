@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log at least/most 5</title>
+</head>
+
+<body>
+    <h1>Log at least/most 5</h1>
+    <h3>open the console</h3>
+
+    <br>
+    <br>
+    <br>
+    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--NR3M1nw8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/z4bbf8o1ly77wmkjdgge.png"
+        alt="pic">
+</body>
+<script>
+    // O(n)
+    const logAtLeast5 = (n) => {
+        for (let i = 1; i <= Math.max(5, n); i++) {
+            console.log(i)
+        }
+    };
+
+    //O(1)
+    const logAtMost5 = (n) => {
+        for (let i = 1; i <= Math.min(5, n); i++) {
+            console.log(i)
+        }
+    };
+
+    logAtLeast5(7);
+    logAtMost5(7);
+</script>
+
+</html>

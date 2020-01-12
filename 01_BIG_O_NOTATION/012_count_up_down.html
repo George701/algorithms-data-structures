@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Count Up and Down</title>
+</head>
+
+<body>
+    <h1>Count Up and Down</h1>
+    <h3>open the console</h3>
+</body>
+<script>
+    console.log('hello');
+    const countUpAndDown = (n) => {
+        console.log('Going up!');
+        // O(n)
+        for (let i = 0; i < n; i++) {
+            console.log(i);
+        };
+        console.log('At the top\nGoing down...');
+        // O(n)
+        for (let j = n - 1; j >= 0; j--) {
+            console.log(j);
+        };
+        console.log('Back down. Bye!');
+    };
+
+    countUpAndDown(10);
+</script>
+
+</html>

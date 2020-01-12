@@ -1,0 +1,24 @@
+We say that algorithm is O(f(n)) if the number of simple operations
+the computer has to do is eventually less than a constant times f(n),
+as n increases.
+
+-) f(n) could be linear (f(n) = n)
+-) f(n) could be quadratic (f(n) = n.pow(2))
+-) f(n) could be constant (f(n) = 1)
+-) f(n) could be something entirely different
+
+Simplyfying Big O Expressions
+
+-) O(2n) -> O(n)
+-) O(500) -> O(1)
+-) O(13n.pow(2)) -> O(n.pow(2))
+-) O(n+10) -> O(n)
+-) O(1000n+50) -> O(n)
+-) O(n.pow(2) + 5n + 8) -> O(n.pow(2))
+
+Thumbs rules
+
+1. Arithmetic operations are constants
+2. Variable assignment is constant
+3. Accessing elements in an array (by index) or by key is constant
+4. In a loop, the complexity is the length of the loop times the complexity of whatever happens inside of the loop
