@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sum an Array</title>
+</head>
+<body>
+  <script>
+    const sum = (arr) => {
+      let total = 0; // one number
+      // another number
+      for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+      }
+      return total;
+    };
+
+    const double = (arr) => {
+      let newArr = [];
+      for (let i = 0; i < arr.length; i++) {
+        newArr.push(2 * arr[i]);
+      }
+      // n numbers => O(n) space
+      return newArr;
+    };
+
+    const arrTest = [1,2,3,4,5,6,7,8,9]
+    console.log(double(arrTest));
+  </script>
+</body>
+</html>

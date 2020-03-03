@@ -18,7 +18,16 @@ Simplyfying Big O Expressions
 
 Thumbs rules
 
+-- Time Complexity --
 1. Arithmetic operations are constants
 2. Variable assignment is constant
 3. Accessing elements in an array (by index) or by key is constant
 4. In a loop, the complexity is the length of the loop times the complexity of whatever happens inside of the loop
+-- Space Complexity --
+5. Most primitives (booleans, numbers, undefined, null) are constant space
+6. String require O(n) space (when n is the string length)
+7. Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for object)
+
+Space complexity
+
+Auxiliary space
