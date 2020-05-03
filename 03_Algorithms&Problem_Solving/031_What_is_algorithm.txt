@@ -1,0 +1,18 @@
+WHAT?
+Algorithm is a process or set of steps to accomplish a certain task.
+
+WHY?
+Almost everything that you do in progeamming involves some kind of algorithm.
+It is the foundamental for being a secessful problem solving and developer.
+
+HOW?
+1. Devise a plan for solving problems
+2. Master common problem solving patterns
+
+PROBLEM SOLVING
+
+-) Understand the problem
+-) Explore Concrete Examples
+-) Break it Down
+-) Solve/Simplify
+-) Look Back and Refactor
