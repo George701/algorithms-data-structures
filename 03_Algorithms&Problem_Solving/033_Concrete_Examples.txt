@@ -1,0 +1,13 @@
+1. Start with simple examples
+2. Progress to More Complex examples
+3. Explore examples with Empty Inputs
+4. Explore examples with invalid inputs
+
+Write a function wich takes in a string and returns counts of each character in the string
+
+charCount("aaaa"); // {a:4, b:0, c:0} ???
+charcount("hello") // {h:1, e:1, l:2, o:1}
+
+"My phone number is 183729188" // spaces, numbers, shecial chars, uppercase is the same as lowercase ???
+
+charCount("") {} || null || false || undefined ???
