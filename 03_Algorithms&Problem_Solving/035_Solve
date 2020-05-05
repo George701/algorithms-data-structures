@@ -1,0 +1,25 @@
+SOLEVE THE PROBLEM If you can't SOLVE A SIMPLER PROBLEM!
+
+1) Find the core difficulty in what you're trying to do
+2) Temporarily ignoring that difficulty
+3) Write a simplified solution
+4) Then incorporate that difficulty back in
+
+function charCount(str){
+  let result = {};
+  for (let i = 0; i < str.length; i++){
+    let char = str[i]
+    if (result[char] > 0) {
+      result[char]++
+    } else {
+      result[char] = 1; 
+    }
+  }
+  // make an object to return at the end
+  // loop over string, for each char
+    // if the char is a number/letter AND is a key in object, add one to count
+    // if the char is number/letter AND is not in the object, add it and set value to 1
+    // if char is something else (space, period, etc.) don't do anything
+  // return object at the end
+  return result;
+}
