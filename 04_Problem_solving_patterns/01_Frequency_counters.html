@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example</title>
+</head>
+
+<body>
+  <h2 style="text-align: center; margin: 0 15vw">
+    Write a function called same, which accepts two arrays. The function should return true if every value in the array
+    has it's corresponding value squared in the second array. The frequency of values must be the same.
+  </h2>
+</body>
+<script>
+  const sameNaive = (arr1, arr2) => {
+    // compare arrays
+    // compare lengths
+    if (arr1.length !== arr2.length) {
+      return false;
+    };
+    // ccompare values
+    // nested loops are made O(n^2), wjitch in not good with big amount of data
+    for (let i = 0; i < arr1.length; i++) {
+      let correctIndex = arr2.indexOf(arr1[i] ** 2)
+      if (correctIndex === -1) {
+        return false;
+      }
+      arr2.splice(correctIndex, 1);
+    }
+    return true;
+    // return bool
+  };
+
+  // in the end function is O(n3), which can be simplified O(n) 
+  const same = (arr1, arr2) => {
+    // compare arrays
+    // compare lengths
+    if (arr1.length !== arr2.length) {
+      return false;
+    };
+    let frequencyCounter1 = {};
+    let frequencyCounter2 = {};
+    // O(n) - because it depends only on a number of values in array
+    for (let val of arr1) {
+      frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
+    };
+    // O(n) - because it depends only on a number of values in array
+    for (let val of arr2) {
+      frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+    };
+    console.log(frequencyCounter1);
+    console.log(frequencyCounter2);
+    // O(n) - because it depends only on a number of values in array
+    for (let key in frequencyCounter1) {
+      if (!(key ** 2 in frequencyCounter2)) {
+        return false;
+      };
+      if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+        return false;
+      }
+    };
+    return true;
+  };
+  console.log(same([1, 2, 3, 4, 5], [9, 1, 4, 16, 11]));
+</script>
+
+</html>
