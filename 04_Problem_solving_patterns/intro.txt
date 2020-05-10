@@ -1,0 +1,14 @@
+HOW DO YOUIMPROVE?
+
+1) Devise a plan for solving problems
+2) Master common problem solving patterns
+
+SOME PATTERNS 
+
+1) Frequency Counter
+2) Multiple Pointers
+3) Sliding Window
+4) Divide and Conquer
+5) Greedy Algorithms
+6) Backtracking
+7) ...
