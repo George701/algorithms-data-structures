@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anagrams</title>
+</head>
+
+<body>
+  <h2 style="text-align: center; margin: 0 15vw">
+    Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a
+    word, phrase, or name formed by rearrangign the letters of another, such as cinema, formed from iceman.
+  </h2>
+</body>
+<script>
+  const validAnagram = (str1, str2) => {
+    // compare length of strings
+    if (str1.length !== str2.length) {
+      return false;
+    };
+    // create frequency counters for both strigs
+    let frequencyCounter1 = {};
+    let frequencyCounter2 = {};
+    for (let val of str1) {
+      frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+    }
+    for (let val of str2) {
+      frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+    }
+
+    console.log(frequencyCounter1);
+    console.log(frequencyCounter2);
+
+    // find each char in frequncy counters
+    for (let key in frequencyCounter1) {
+      if (frequencyCounter1[key] !== frequencyCounter2[key]) {
+        return false
+      };
+    };
+    return true
+  };
+
+  console.log(validAnagram('cinema', 'iceman'));
+</script>
+
+</html>
