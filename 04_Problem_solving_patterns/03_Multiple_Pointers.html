@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple pointers</title>
+</head>
+
+<body>
+  <h1 style="text-align: center; text-transform: uppercase;">
+    Multiple pointers
+  </h1>
+
+  <div style="text-align: center; margin: 0 15vw; font-size: large;">
+    <p>
+      Creating <strong>pointers</strong> or values that correspond to an index or position and move towards the
+      beginning,
+      end or middle based on a certain condition.
+    </p>
+    <p>
+      <strong>Very</strong> efficient for solving problems with minimal splace complexity as well
+    </p>
+  </div>
+  <script>
+    const arrOne = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+    const strOne = "asdfghjklkzxcvbnm";
+
+    const arrTwo = [-3, 0, -2, 1, -1, 4, 10, 5];
+
+    const sumZero = (arr) => {
+      // sort passed array
+      arr = arr.sort((a, b) => a - b);
+      console.log(arr)
+
+      // get pointers on beginning and end
+      let left = 0;
+      let right = arr.length - 1;
+      let sum;
+
+      // find pair
+      while (left < right) {
+        sum = arr[left] + arr[right]
+        console.log(`sum of vals ${arr[left]} + ${arr[right]} is equal to ${sum}`)
+        // record it to array of result
+        if (sum === 0) {
+          return [arr[left], arr[right]];
+        } else if (sum > 0) {
+          right--;
+        } else {
+          left++;
+        }
+      }
+    }
+
+    console.log(sumZero(arrTwo));
+  </script>
+</body>
+
+</html>
