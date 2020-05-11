@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count unique values</title>
+</head>
+
+<body>
+  <h1 style="text-align: center; text-transform: uppercase;">
+    Count unique values
+  </h1>
+
+  <div style="text-align: center; margin: 0 15vw; font-size: large;">
+    <p>
+      Implement a function called <strong>countUniqueValues</strong>, which accepts a sorted array, and counts the
+      unique values in the
+      array. There can be negative numbers in the array, but it will always be sorted.
+    </p>
+  </div>
+  <script>
+    const arrOne = [1, 1, 1, 1, 1, 2];
+    const arrTwo = [1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13];
+    const arrThree = [];
+    const arrFour = [-2, -1, -1, 0, 1];
+
+    const countUniqueValues = (arr) => {
+      // sort an array
+      arr = arr.sort((a, b) => a - b);
+
+      // iniutialize result variable
+      // let result = 1;
+
+      // set pointers
+      let left = 0;
+      let right = 1;
+
+      // // check if array is empty
+      if (arr.length === 0) {
+        return 0;
+      }
+
+      // loop through array and record each unique value in result var
+      while (right < arr.length) {
+        if (arr[left] !== arr[right]) {
+          left++;
+          arr[left] = arr[right]
+        }
+        right++;
+      }
+
+      // return the result 
+      return left + 1;
+    }
+
+    console.log(countUniqueValues(arrOne))
+    console.log(countUniqueValues(arrTwo))
+    console.log(countUniqueValues(arrThree))
+    console.log(countUniqueValues(arrFour))
+  </script>
+</body>
+
+</html>
