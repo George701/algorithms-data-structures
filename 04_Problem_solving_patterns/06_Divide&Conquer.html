@@ -21,7 +21,45 @@
     </p>
   </div>
   <script>
+    const sameFrequency = (int1, int2) => {
 
+      const val1 = int1.toString(10).replace(/\D/g, '0').split('').map(Number);
+      const val2 = int2.toString(10).replace(/\D/g, '0').split('').map(Number);
+
+      console.log(val1)
+      console.log(val2)
+      // check if numbers are the same length
+      if (val1.length !== val2.length) {
+        return false;
+      }
+
+      // create frequency counters
+      let frequencyCounter1 = {};
+      let frequencyCounter2 = {};
+      for (let val of val1) {
+        frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+      }
+      for (let val of val2) {
+        frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+      }
+
+      console.log(frequencyCounter1);
+      console.log(frequencyCounter2);
+
+      // compare keys
+      for (let key in frequencyCounter1) {
+        // if not equal then return false
+        if (frequencyCounter1[key] !== frequencyCounter2[key]) {
+          return false
+        };
+      };
+      // return true
+      return true
+    }
+
+    console.log(sameFrequency(431, 134));
+    console.log(sameFrequency(4324531, 13234324));
+    console.log(sameFrequency(44531, 15434));
   </script>
 </body>
 
