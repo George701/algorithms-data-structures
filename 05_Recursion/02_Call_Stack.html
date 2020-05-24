@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Call Stack</title>
+</head>
+
+<body style="width: 60vw; margin: 0 auto;">
+  <h1 style="text-align: center; text-transform: uppercase;">
+    The Call Stack
+  </h1>
+
+  <h2 style="text-align: center; text-transform: uppercase;">
+    let's talk about functions
+  </h2>
+
+  <div style="text-align: center; margin: 0 15vw; font-size: large;">
+    <p>
+      In almost all program languages, there is a built in data structure that manages what happens when functions are
+      invoked. It is the call stack.
+    </p>
+  </div>
+
+  <h2 style="text-align: center; text-transform: uppercase;">
+    The call stack
+  </h2>
+
+  <ul>
+    <li>It's a stack data structure - we'll talk about that later!</li>
+    <li>Any time function is invoked it is placed (<strong>pushed</strong>)</li>
+    <li>When JavaScript sees the return keyword or when the function ends, the compiler will remove
+      (<strong>pop</strong>)</li>
+  </ul>
+
+  <h2 style="text-align: center; text-transform: uppercase;">
+    Why do I care?
+  </h2>
+
+  <ul>
+    <li>You're used to functions being pushed on the call stack and popped off when they are done</li>
+    <li>When we write recursive functions, we keep pushing new functions onto call stack!</li>
+  </ul>
+
+  <script>
+    const takeShower = () => "Showering";
+
+    const getTheItems = () => "Take products";
+
+    const cookFood = () => {
+      getTheItems();
+      return "Cooking food"
+    };
+
+    const cleanKitchen = () => "Cleaning kitchen";
+
+    const morningRoutine = () => {
+      takeShower();
+      cookFood();
+      cleanKitchen();
+      console.log('You had your morning!');
+    }
+
+    morningRoutine();
+  </script>
+</body>
+
+</html>
