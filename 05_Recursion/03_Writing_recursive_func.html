@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body style="width: 60vw; margin: 0 auto;">
+  <h2 style="text-align: center; text-transform: uppercase;">
+    How recursive functions work
+  </h2>
+
+  <div style="text-align: center; margin: 0 15vw; font-size: large;">
+    <p>
+      Invoke the <strong>same</strong> function with a different input until you reach your base case.
+    </p>
+  </div>
+
+  <h2 style="text-align: center; text-transform: uppercase;">
+    Base Case
+  </h2>
+
+  <div style="text-align: center; margin: 0 15vw; font-size: large;">
+    <p>
+      The condition when the recursion ends.
+    </p>
+    <p>
+      <strong>This is the most important concept to understand</strong>
+    </p>
+  </div>
+
+  <h2 style="text-align: center; text-transform: uppercase;">
+    Two essential parts of a recursive function!
+  </h2>
+  <ol>
+    <li>Base Case</li>
+    <li>Different Input</li>
+  </ol>
+
+  <script>
+    const countDown = (num) => {
+      if (num <= 0) {
+        console.log("All done!");
+        return;
+      }
+      console.log(num);
+      num--;
+      countDown(num);
+    }
+
+    countDown(5);
+  </script>
+</body>
+
+</html>
