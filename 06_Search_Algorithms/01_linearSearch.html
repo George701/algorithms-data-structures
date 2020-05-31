@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/main.css">
+  <title>Linear Search</title>
+</head>
+
+<body>
+  <h2>
+    Linear Search
+  </h2>
+
+  <artile>
+    <h3>
+      How do we search
+    </h3>
+    <p>
+      Given an array, the simplest way to search for an value is to look at every element in the array and check if it's
+      the value we want
+    </p>
+  </artile>
+
+  <article>
+    <h3>
+      JavaScript has search!
+    </h3>
+    <p>
+      There are many different search methods on arrays in JavaScript:
+    </p>
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">
+          indexOf
+        </a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">
+          includes
+        </a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">
+          find
+        </a>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">
+          findIndex
+        </a>
+      </li>
+    </ul>
+  </article>
+
+
+  <article>
+    <h3>Linear search pseudocode</h3>
+    <ul>
+      <li>
+        This is function accepts an array and a value
+      </li>
+      <li>
+        Loop through the array and check if the current array element is equal to the value
+      </li>
+      <li>
+        If it is, return the index at which the element is found
+      </li>
+      <li>
+        If the value in never found, return -1
+      </li>
+    </ul>
+  </article>
+
+  <script>
+    const linearSearch = (arr, num) => {
+      for (let val in arr) {
+        if (arr[val] === num) return parseInt(val);
+      };
+      return -1;
+    };
+
+    console.log(linearSearch([10, 15, 20, 25, 30], 15));
+    console.log(linearSearch([9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 4));
+    console.log(linearSearch([100], 100));
+    console.log(linearSearch([1, 2, 3, 4, 5], 6));
+    console.log(linearSearch([9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 10));
+    console.log(linearSearch([100], 200));
+  </script>
+</body>
+
+</html>
