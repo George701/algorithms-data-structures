@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/main.css">
+  <title>Binary Search</title>
+</head>
+
+<body>
+  <h2>Binary Search</h2>
+
+  <article>
+    <ul>
+      <li>
+        Binary search is a mush faster form of search
+      </li>
+      <li>
+        Rather than eliminating one element at a time, you can eliminate half of ther remaining elements at a time
+      </li>
+      <li>
+        Binary search only workds on sorted arrays!
+      </li>
+      <li>
+        Divide and Conquer!
+      </li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Binary Search Pseudocode</h3>
+    <ul>
+      <li>
+        Write function that accepts a sorted array and a value
+      </li>
+      <li>
+        Create a left pointer at the start of the array, and a right pointer at the end of the array
+      </li>
+      <li>
+        While the left ponter comes before the right pointer:
+        <ul>
+          <li>
+            Create a ponter in the middle
+          </li>
+          <li>
+            If you find the value you want, return the index
+          </li>
+          <li>
+            If the value is too small, move the left pointer up
+          </li>
+          <li>
+            If the value is too large, move the left pointer down
+          </li>
+        </ul>
+      </li>
+      <li>
+        If you never find the value, return -1
+      </li>
+    </ul>
+
+  </article>
+
+  <script src='../assets/data.js'></script>
+  <script>
+    const arrOne = [1, 2, 3, 4, 5];
+    const arrTwo = [5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98, 99];
+
+    const binarySearch = (arr, val) => {
+      let leftPointer = 0;
+      let rightPointer = arr.length - 1;
+      let middlePointer;
+
+      do {
+        middlePointer = Math.floor((rightPointer + leftPointer) / 2);
+
+        if (arr[middlePointer] === val) return middlePointer;
+        if (arr[leftPointer] === val) return leftPointer;
+        if (arr[rightPointer] === val) return rightPointer;
+
+        if (arr[middlePointer] < val) leftPointer = middlePointer
+        else rightPointer = middlePointer
+      } while ((leftPointer + 1) !== rightPointer)
+      return -1;
+    }
+
+    // console.log('Answer:', binarySearch(arrOne, 2));
+    // console.log('Answer:', binarySearch(arrOne, 3));
+    // console.log('Answer:', binarySearch(arrOne, 5));
+    // console.log('Answer:', binarySearch(arrOne, 6));
+    // console.log('Answer:', binarySearch(arrTwo, 10));
+    // console.log('Answer:', binarySearch(arrTwo, 100));
+  </script>
+</body>
+
+</html>
