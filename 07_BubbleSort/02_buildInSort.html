@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/main.css">
+  <title>Sort methods</title>
+</head>
+
+<body>
+  <article>
+    <h2>Javascript has a sort methods</h2>
+    <p>
+      The <strong>sort()</strong> method sorts the elements of an array in place and returns the array. The sort is not
+      necessary stable. The default sort order is according to string Unicode code points.
+    </p>
+  </article>
+
+  <article>
+    <h3>Telling Javascript how to sort</h3>
+    <ul>
+      <li>
+        The build-in sort method accepts an optional comparator function
+      </li>
+      <li>
+        You can use this comparator function to tell Javascript how you want it to sort
+      </li>
+      <li>
+        The comparator looks at pairs of elements (<em>a</em> and <em>b</em>),
+        determines their sort order based on the return value
+        <ul>
+          <li>
+            If it returns a negative number, <em>a</em> should come before <em>b</em>
+          </li>
+          <li>
+            If it returns a positive number, <em>a</em> should come after <em>b</em>
+          </li>
+          <li>
+            If it returns 0, <em>a</em> and <em>b</em> are the same as far as the sort is concerned
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+</body>
+
+</html>
