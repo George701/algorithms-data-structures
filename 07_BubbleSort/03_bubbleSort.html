@@ -20,7 +20,7 @@
     <h3>BubbleSrot Pseudocode</h3>
     <ul>
       <li>
-        Start looping from with with a variable called <em>i</em> the end of the array towards the beginning
+        Start looping from a variable called <em>i</em> the end of the array towards the beginning
       </li>
       <li>
         Start an inner loop with a variable called <em>j</em> from the beginning until <em>i - 1</em>
@@ -33,6 +33,24 @@
       </li>
     </ul>
   </article>
+
+  <script>
+    const bubbleSortNaive = (arr) => {
+      const swap = (inxOne, indTwo, arr) => {
+        [arr[inxOne], arr[indTwo]] = [arr[indTwo], arr[inxOne]];
+      }
+
+      for (let i = arr.length; i > 0; i--) {
+        for (let j = 0; j < i - 1; j++) {
+          console.log(arr, arr[j], arr[j + 1]);
+          if (arr[j] > arr[j + 1]) swap(j, j + 1, arr)
+        }
+      }
+      return arr;
+    };
+    console.log([37, 45, 29, 8]);
+    console.log(bubbleSortNaive([37, 45, 29, 8]));
+  </script>
 </body>
 
 </html>
