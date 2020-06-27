@@ -39,6 +39,52 @@
     </ul>
   </article>
 
+  <script>
+    // const selectionSort = (arr) => {
+    //   for (let i = 0; i < arr.length; i++) {
+    //     let lowest = i;
+    //     // define lowest value
+    //     for (let j = i + 1; j < arr.length; j++) {
+    //       console.log(i, j);
+    //       if (arr[j] < arr[lowest]) {
+    //         lowest = j;
+    //       }
+    //     }
+    //     if (i !== lowest) {
+    //       console.log('--------------------------------');
+    //       console.log('Array before swapping', arr);
+    //       console.log('SWAP');
+    //       let temp = arr[i]
+    //       arr[i] = arr[lowest];
+    //       arr[lowest] = temp;
+    //       console.log('Array after swapping', arr);
+    //       console.log('--------------------------------');
+    //     }
+    //   }
+    //   return arr;
+    // }
+
+    const selectionSort = (arr) => {
+      const swap = (inxOne, indTwo, arr) => {
+        [arr[inxOne], arr[indTwo]] = [arr[indTwo], arr[inxOne]];
+      };
+
+      for (let i = 0; i < arr.length; i++) {
+        let lowest = i;
+        // define lowest value
+        for (let j = i + 1; j < arr.length; j++) {
+          console.log(i, j);
+          if (arr[j] < arr[lowest]) {
+            lowest = j;
+          }
+        }
+        if (i !== lowest) swap(i, lowest, arr);
+      }
+      return arr;
+    }
+
+    console.log(selectionSort([0, 2, 34, 22, 10, 19, 17]));
+  </script>
 
 </body>
 
