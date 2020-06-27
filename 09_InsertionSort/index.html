@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/main.css">
+  <title>Insertion Sort</title>
+</head>
+
+<body>
+  <article>
+    <h2>Insertion Sort</h2>
+    <p>
+      Builds up the sort by gradually creating a larger left half which is always sort.
+    </p>
+  </article>
+
+  <article>
+    <h3>Insertion Sort Pseudocode</h3>
+    <ul>
+      <li>
+        Start by pick the second element in the array
+      </li>
+      <li>
+        Now compare the second element with the one before it and swap if necessary
+      </li>
+      <li>
+        continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the
+        left side) to place the element in the correct place
+      </li>
+      <li>
+        Repeat until the array is sorted
+      </li>
+    </ul>
+  </article>
+
+  <script>
+    const insertionSort = (arr) => {
+      for (let i = 1; i < arr.length; i++) {
+        let currentVal = arr[i];
+        let j = i - 1
+        for (; j >= 0 && arr[j] > currentVal; j--) {
+          arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = currentVal;
+        console.log('After swapping: ', arr);
+      }
+      return arr;
+    };
+
+    // console.log(insertionSort([2, 76, 9, 1, 44, 0]));
+    console.log(insertionSort([2, 1, 9, 76, 4]));
+  </script>
+</body>
+
+</html>
