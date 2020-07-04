@@ -20,5 +20,44 @@
       Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array.
     </p>
   </article>
+
+  <article>
+    <h3>Merging Arrays</h3>
+    <ul>
+      <li>
+        In order to implement merge sort, it's useful to first implement a function responsible for merging two sorted arrays
+      </li>
+      <li>
+        Given two sorted arrays, this helper function should create a new array which is also sorted, and constists of all of the elements in the two input arrays
+      </li>
+      <li>
+        This function should run in O(n + m) time and O(n + m) space and should not modify the parameters passed to it 
+      </li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Merging Arrays Pseudocode</h3>
+    <ul>
+      <li>
+        Create an empty array, take a look at the smallest values in each input array (while)
+      </li>
+      <li>
+        While there are still values we haven't looked at...
+        <ul>
+          <li>
+            If the value in the first array is smaller than the value in the second array, push the value in the first array into our results and move on to the next value in the first array
+          </li>
+          <li>
+            If the value in the first array is larger that the value in the second array, push the value in the second array into our results and move on to the next value in the second array
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+
+  <script>
+    merge([1,10,50], [2,14,99,100]);
+  </script>
 </body>
 </html>
