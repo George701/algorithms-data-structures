@@ -101,6 +101,11 @@
       return arrResult;
     }
 
+    // O(log n) decompositions
+    // &&
+    // O(n) compositions per decompositions
+    // =
+    // O(n log n)
     const mergeSort = (arr) => {
       if (arr.length <= 1) return arr;
 
