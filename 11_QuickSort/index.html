@@ -48,15 +48,17 @@
 
   <article>
     <h3>Picking a Pivot</h3>
-    <li>
-      The runtime of quick sort depends in part on how one selects the pivot
-    </li>
-    <li>
-      Ideally, the pivot should be chosen so that it's roughly the median value in the data set you're sorting
-    </li>
-    <li>
-      For simplicity, we'll always choose the pivot to be the first element (we'll talk about consequences of this later)
-    </li>
+    <ul>
+      <li>
+        The runtime of quick sort depends in part on how one selects the pivot
+      </li>
+      <li>
+        Ideally, the pivot should be chosen so that it's roughly the median value in the data set you're sorting
+      </li>
+      <li>
+        For simplicity, we'll always choose the pivot to be the first element (we'll talk about consequences of this later)
+      </li>
+    </ul>
   </article>
 
   <article>
@@ -87,5 +89,33 @@
       </li>
     </ul>
   </article>
+  <script>
+    const pivot =  (
+      arr,
+      start=0,
+      end=arr.length + 1
+    ) => {
+      let pivot = arr[start];
+      let swapIdx = start;
+
+      const swap = (inxOne, indTwo, arr) => {
+        [arr[inxOne], arr[indTwo]] = [arr[indTwo], arr[inxOne]];
+      };
+
+      for ( let i = start + 1; i < arr.length; i++ ) {
+        if (pivot > arr[i] ) {
+          swapIdx++;
+          swap(swapIdx, i, arr);
+          console.log('Swaped array: ', arr);
+        }
+      }
+
+      swap(start, swapIdx, arr);
+      console.log(arr);
+      return swapIdx;
+    }
+
+    console.log(pivot([4,8,2,1,5,7,6,3]))
+  </script>
 </body>
 </html>
