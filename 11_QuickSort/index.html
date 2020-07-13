@@ -89,6 +89,22 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>Quicksort Pseudocode</h3>
+    <ul>
+      <li>
+        Call the pivot helper on the array
+      </li>
+      <li>
+        When the helper returns to you the updated pivot index, , recursivly call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
+      </li>
+      <li>
+        Your base case occurs when you consider a subarray with less then 2 elemens
+      </li>
+    </ul>
+  </article>
+
   <script>
     const pivot =  (
       arr,
@@ -106,16 +122,31 @@
         if (pivot > arr[i] ) {
           swapIdx++;
           swap(swapIdx, i, arr);
-          console.log('Swaped array: ', arr);
         }
       }
 
       swap(start, swapIdx, arr);
-      console.log(arr);
       return swapIdx;
     }
 
-    console.log(pivot([4,8,2,1,5,7,6,3]))
+    const quickSort = (
+      arr,
+      left = 0,
+      right = arr.length - 1
+    ) => {
+
+      if (left < right) {
+        let pivotIndex = pivot(arr, left, right);
+        // left
+        quickSort(arr, left, pivotIndex-1);
+        // right
+        quickSort(arr, pivotIndex+1, right)
+      }
+
+      return arr;
+    }
+
+    console.log(quickSort([100, -3, 45, 4,8,2,1,5,7,6,3]))
   </script>
 </body>
 </html>
