@@ -21,5 +21,41 @@
     </p>
     <p>More digits means a bigger number</p>
   </article>
+  <article>
+    <h3>
+      Radix sort helpers
+    </h3>
+    <p>
+      In order to implement radix sort, it is helpful to build a few helper functions first
+    </p>
+    <p>
+      getDigit(num, place) - returns the digit in num at the given place value
+    </p>
+    <p>
+      digitCount(num) - return the number of digits in num
+    </p>
+    <p>
+      mostDigits(arr) - Given an array of numbers, returns the number of digits in the largest numbers in the list
+    </p>
+  </article>
+  <script>
+    const getDigit = (num, i) => 
+      Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
+
+    const digitCount = num => (num === 0)
+      ? 1
+      : Math.floor(Math.log10(Math.abs(num))) + 1
+
+    const mostDigits = arr => {
+      let maxDigits = 0;
+      for (let i = 0; i < arr.length; i++) {
+        maxDigits = Math.max(maxDigits, digitCount(arr[i]))
+      }
+
+      return maxDigits
+    };
+
+    console.log(mostDigits([123456, 12345, 1234, 123, 12, 1, 0]));
+  </script>
 </body>
 </html>
