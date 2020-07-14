@@ -38,6 +38,37 @@
       mostDigits(arr) - Given an array of numbers, returns the number of digits in the largest numbers in the list
     </p>
   </article>
+  <article>
+    <h3>Radix sort pseudocode</h3>
+    <ul>
+      <li>
+        Define function that accepts list of numbers
+      </li>
+      <li>
+        Figure out how many digits the largest number has
+      </li>
+      <li>
+        Loop from k = 0 up to this largest number of digits
+      </li>
+      <li>
+        For each iteration of the loop
+        <ul>
+          <li>
+            Create buckets for each digit (0 to 9)
+          </li>
+          <li>
+            place each number in the corresponding bucket based on its ktn digit
+          </li>
+        </ul>
+      </li>
+      <li>
+        Replace our existing array with values in our buckets, starting with 0 and going up to 9
+      </li>
+      <li>
+        return list in the end
+      </li>
+    </ul>
+  </article>
   <script>
     const getDigit = (num, i) => 
       Math.floor(Math.abs(num) / Math.pow(10, i)) % 10
