@@ -86,7 +86,28 @@
       return maxDigits
     };
 
-    console.log(mostDigits([123456, 12345, 1234, 123, 12, 1, 0]));
+    const radixSort = arr => {
+      const maxDigitsCount = mostDigits(arr);
+      // console.log('maxDigitsCount: ', maxDigitsCount);
+      // console.log('arr', arr);
+
+      for (let k = 0; k < maxDigitsCount; k++) {
+        // console.log('------------------ Next Iteration ------------------')
+        let digitBuckets = Array.from({ length: 10 }, () => []);
+        // console.log('digitBuckets: ', digitBuckets);
+        for (let i = 0; i < arr.length; i++) {
+          const digit = getDigit(arr[i], k);
+          digitBuckets[digit].push(arr[i])
+        }
+        // console.log('digitBuckets', digitBuckets);
+        arr = [].concat(...digitBuckets);
+        // console.log('arr', arr)
+      }
+      return arr;
+    }
+
+    // console.log(radixSort([123456, 12345, 1234, 123, 12, 1, 0]));
+    console.log(radixSort([463, 123854645, 356, 2342, 2356, 13, 60, 0]));
   </script>
 </body>
 </html>
