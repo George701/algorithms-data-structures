@@ -59,6 +59,43 @@
       Instance Methods are methods that provide functionality to single particular instance
     </p>
   </article>
+
+  <hr>
+
+  <article>
+    <h2>Class Methods</h2>
+    <p>
+      The <em>static</em> keyword defines a static method for a class. Static methods are called without instantiating their class and cannot be called through a class instance.  Static methods are often used to create utility functions for an application.
+    </p>
+  </article>
+
+  <article>
+    <h2>One gotcha with 'this'</h2>
+    <p>
+      Inside all of our instance methods and constructor, the keyword 'this' refers to the object created from that class (also known as an instance)
+    </p>
+  </article>
+
+  <article>
+    <h2>Recap</h2>
+    <ul>
+      <li>
+        Classes are blueprints that when created make objects known as <strong>instances</strong>
+      </li>
+      <li>
+        Classes are created with the <strong>new</strong> keyword
+      </li>
+      <li>
+        The <strong>constuctor</strong> function is a special function that gets run when the class is instantiated
+      </li>
+      <li>
+        Instance methods can be added to classes similar to methods in objects
+      </li>
+      <li>
+        Class methods can be added using the <strong>static</strong> keyword
+      </li>
+    </ul>
+  </article>
 </body>
 
 <script>
@@ -70,25 +107,49 @@
       this.tardies = 0;
       this.scores = [];
     }
-    greeting() {
+    greeting = () => {
       return `Hello ${this.firstName} ${this.lastName}`;
     }
-    markLate() {
+    markLate = () => {
       this.tardies += 1;
       if (this.tardies >= 3) return 'You are expelled!';
       return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
     }
-    addScore(score) {
+    addScore = score => {
       this.scores.push(score);
       return this.scores;
     }
-    calculateAverage() {
+    calculateAverage = () => {
       let sum = this.scores.reduce((a,b) => a+b);
       return sum / this.scores.length;
+    }
+    static enrollStudents = () => {
+      return "Enrolling Students";
     }
   }
 
   let firstStudent = new Student("Colt", "Steal", 2018);
   let secondStudent = new Student("Blue", "Steal", 2018);
+
+  class Point {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    static distance(a, b) {
+      const dx = a.x - b.x;
+      const dy = a.y - b.y;
+
+      return Math.hypot(dx, dy);
+    }
+  }
+
+  const p1 = new Point(5, 5);
+  const p2 = new Point(10, 10);
+  p1.distance; //undefined
+  p2.distance; //undefined
+
+  console.log(Point.distance(p1, p2)); // 7.0710678118654755
 </script>
 </html>
