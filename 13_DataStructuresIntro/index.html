@@ -50,5 +50,45 @@
       The class ketword creates a constant, so you cannot redefine it. Watch out for the syntax as well
     </p>
   </article>
+
+  <hr>
+
+  <article>
+    <h2>Instance Methods</h2>
+    <p>
+      Instance Methods are methods that provide functionality to single particular instance
+    </p>
+  </article>
 </body>
+
+<script>
+  class Student {
+    constructor(firstName, lastName, year){
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.grade = year;
+      this.tardies = 0;
+      this.scores = [];
+    }
+    greeting() {
+      return `Hello ${this.firstName} ${this.lastName}`;
+    }
+    markLate() {
+      this.tardies += 1;
+      if (this.tardies >= 3) return 'You are expelled!';
+      return `${this.firstName} ${this.lastName} has been late ${this.tardies} times`;
+    }
+    addScore(score) {
+      this.scores.push(score);
+      return this.scores;
+    }
+    calculateAverage() {
+      let sum = this.scores.reduce((a,b) => a+b);
+      return sum / this.scores.length;
+    }
+  }
+
+  let firstStudent = new Student("Colt", "Steal", 2018);
+  let secondStudent = new Student("Blue", "Steal", 2018);
+</script>
 </html>
