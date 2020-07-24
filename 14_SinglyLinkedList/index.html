@@ -55,6 +55,78 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>Pushing in List</h3>
+    <p>
+      Addinf a new <strong>node</strong> to the end of the Linked List
+    </p>
+    <h3>
+      Pushing pseudocode
+    </h3>
+    <ul>
+      <li>
+        This function should accept a value
+      </li>
+      <li>
+        Create a new node using value passed to the function
+      </li>
+      <li>
+        If there is no head property on the list, set the head and tail to be the newly created node
+      </li>
+      <li>
+        Otherwise set the next property on the tail to be the new node and set the tail property on the list to be the newly created node
+      </li>
+      <li>
+        Increment the length by one
+      </li>
+      <li>
+        Return the linked list
+      </li>
+    </ul>
+  </article>
   
+  <script>
+
+    class Node {
+      constructor(val) {
+        this.val = val;
+        this.next = null;
+      }
+    }
+
+    // const first = new Node("hi");
+    // first.next = new Node("there");
+    // first.next.next = new Node("how");
+    // first.next.next.next = new Node("are");
+    // first.next.next.next.next = new Node("you");
+
+    // console.log(first);
+
+    class SinglyLinkedList {
+      constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+      }
+
+      push = val => {
+        let newNode = new Node(val);
+
+        if (!this.head) {
+          this.head = newNode;
+          this.tail = this.head;
+        } else {
+          this.tail.next = newNode;
+          this.tail = newNode;
+        }
+
+        this.length++;
+        return this;
+      }
+    }
+
+    const list = new SinglyLinkedList();
+  </script>
 </body>
 </html>
