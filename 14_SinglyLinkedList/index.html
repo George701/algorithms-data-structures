@@ -116,6 +116,33 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>Shifting</h3>
+    <p>
+      Removing a new <strong>node</strong> from the beginning of the Linked List
+    </p>
+    <h3>
+      Shifting pseudocode
+    </h3>
+    <ul>
+      <li>
+        If there are no nodes, return undefined
+      </li>
+      <li>
+        Store the current head property in a variable
+      </li>
+      <li>
+        Set the head property to be the current head's next property
+      </li>
+      <li>
+        Decrement the length by 1
+      </li>
+      <li>
+        Return the value of the node removed
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -189,6 +216,23 @@
 
         // Return the value of the node removed
         return currentNode;
+      }
+
+      shift = () => {
+        // If there are no nodes, return undefined
+        if (this.length === 0) return undefined;
+        // Store the current head property in a variable
+        const currentHead = this.head;
+        // Set the head property to be the current head's next property
+        this.head = currentHead.next;
+        // Decrement the length by 1
+        this.length--;
+        if (this.length === 0) {
+          this.head = null;
+          this.tail = null;
+        }
+        // Return the value of the node removed
+        return currentHead;
       }
     }
 
