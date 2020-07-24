@@ -143,6 +143,41 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Unshifting
+    </h3>
+    <p>
+      Adding a new <strong>node</strong> to the beggining of the Linked List
+    </p>
+    <h3>
+      Unshifting pseudocode
+    </h3>
+    <ul>
+      <li>
+        This function should accept a value
+      </li>
+      <li>
+        Create a new node using the value passed to the function
+      </li>
+      <li>
+        If there is no head propery on the list, set the head and the tail to the newly created node
+      </li>
+      <li>
+        Otherwise set the newly created node's next property to be the current head property on the list
+      </li>
+      <li>
+        Set the head property on the list to be that newly created node
+      </li>
+      <li>
+        Increment the length of the list by 1
+      </li>
+      <li>
+        Return linked list
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -166,7 +201,7 @@
         this.head = null;
         this.tail = null;
         this.length = 0;
-      }
+      };
 
       push = val => {
         const newNode = new Node(val);
@@ -181,7 +216,7 @@
 
         this.length++;
         return this;
-      }
+      };
       // traverse = () => {
       //   let current = this.head;
       //   while (current) {
@@ -198,7 +233,7 @@
         while (currentNode.next) {
           newTail = currentNode;
           currentNode = currentNode.next;
-        }
+        };
 
         // Set the tail to be the 2nd to last node
         this.tail = newTail;
@@ -216,7 +251,7 @@
 
         // Return the value of the node removed
         return currentNode;
-      }
+      };
 
       shift = () => {
         // If there are no nodes, return undefined
@@ -233,6 +268,26 @@
         }
         // Return the value of the node removed
         return currentHead;
+      };
+
+      unshift = val => {
+        // This function should accept a value
+        // Create a new node using the value passed to the function
+        const newNode = new Node(val);
+        if (!this.head) {
+        // If there is no head propery on the list, set the head and the tail to the newly created node
+          this.head = newNode;
+          this.tail = this.head;
+        } else {
+          // Otherwise set the newly created node's next property to be the current head property on the list
+          newNode.next = this.head;
+          // Set the head property on the list to be that newly created node
+          this.head = newNode;
+        }
+        // Increment the length of the list by 1
+        this.length++;
+        // Return linked list
+        return this;
       }
     }
 
