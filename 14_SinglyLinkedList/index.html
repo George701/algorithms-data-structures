@@ -85,6 +85,37 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Popping
+    </h3>
+    <p>
+      Removing a node from the end of the Linked List
+    </p>
+
+    <h3>Popping pseudocode</h3>
+    <ul>
+      <li>
+        If there are no nodes in the list, return undefined
+      </li>
+      <li>
+        Loop through the list until you reach the tail
+      </li>
+      <li>
+        Set the next property of the 2nd to last node to be null
+      </li>
+      <li>
+        Set the tail to be the 2nd to last node
+      </li>
+      <li>
+        Decrement the length of the list by 1
+      </li>
+      <li>
+        Return the value of the node removed
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -111,7 +142,7 @@
       }
 
       push = val => {
-        let newNode = new Node(val);
+        const newNode = new Node(val);
 
         if (!this.head) {
           this.head = newNode;
@@ -124,9 +155,49 @@
         this.length++;
         return this;
       }
+      // traverse = () => {
+      //   let current = this.head;
+      //   while (current) {
+      //     console.log(current.val);
+      //     current = current.next;
+      //   }
+      // }
+      pop = () => {
+        // If there are no nodes in the list, return undefined
+        if (this.length === 0) return undefined
+        // Loop threough the list until you reach the tail
+        let currentNode = this.head;
+        let newTail = currentNode;
+        while (currentNode.next) {
+          newTail = currentNode;
+          currentNode = currentNode.next;
+        }
+
+        // Set the tail to be the 2nd to last node
+        this.tail = newTail;
+
+        // Set the next property of the 2nd to last node to be null
+        this.tail.next = null;
+
+        // Decrement the length of the list by 1
+        this.length--;
+        
+        if (this.length === 0) {
+          this.head = null;
+          this.tail = null;
+        }
+
+        // Return the value of the node removed
+        return currentNode;
+      }
     }
 
     const list = new SinglyLinkedList();
+    list.push("Hello");
+    list.push("darkness");
+    list.push("my");
+    list.push("old");
+    list.push("friend");
   </script>
 </body>
 </html>
