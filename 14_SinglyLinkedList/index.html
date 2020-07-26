@@ -199,6 +199,32 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Set
+    </h3>
+    <p>
+      Changing the value of a node based on it's position in the Linked List
+    </p>
+    <h3>
+      Set pseudocode
+    </h3>
+    <ul>
+      <li>
+        This function should accept a value and an index
+      </li>
+      <li>
+        Use your get function to find the specific node
+      </li>
+      <li>
+        If the node is not found, return false
+      </li>
+      <li>
+        If the node is found, set the value of that node to be the value passed to the function and return true
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -320,7 +346,16 @@
           counter++
         }
         return current;
-      }
+      };
+
+      set = (index, val) => {
+        const foundNode = this.get(index);
+        if (foundNode) {
+          foundNode.val = val;
+          return true;
+        }
+        return false;
+      };
     }
 
     const list = new SinglyLinkedList();
