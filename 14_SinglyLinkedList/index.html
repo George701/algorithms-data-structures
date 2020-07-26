@@ -178,6 +178,27 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>Get</h3>
+    <p>
+      Retrieving a node by it's position in the Linked list
+    </p>
+    <h3>
+      Get pseudocode
+    </h3>
+    <ul>
+      <li>
+        Function should accept an index
+      </li>
+      <li>
+        If the index is less than zero or greater than or equal to the lengthh of the list, return null
+      </li>
+      <li>
+        Loop through the list until you reach the index and return the node at that specific index
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -288,6 +309,17 @@
         this.length++;
         // Return linked list
         return this;
+      };
+
+      get = index => {
+        if (index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while (counter !== index) {
+          current = current.next;
+          counter++
+        }
+        return current;
       }
     }
 
