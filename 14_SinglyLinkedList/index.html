@@ -225,6 +225,41 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Insert
+    </h3>
+    <p>
+      Adding a node t the Linked List at specific position
+    </p>
+    <h3>
+      Insert pseudocode
+    </h3>
+    <ul>
+      <li>
+        If the index is less than zero or greater than the length, return false
+      </li>
+      <li>
+        If the index is the same as the length, push a new node to the end of the list
+      </li>
+      <li>
+        If the index is 0, unshift a new node to the start of the list
+      </li>
+      <li>
+        Otherwise, using get method, access the node at the index -1
+      </li>
+      <li>
+        Set the nex property on that node to be the new node
+      </li>
+      <li>
+        Set the next property on the new node to be the previous next
+      </li>
+      <li>
+        Return true
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -356,14 +391,30 @@
         }
         return false;
       };
+
+      insert = (index, val) => {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+        const newNode = new Node(val);
+        const prev = this.get(index - 1);
+        newNode.next = prev.next;
+        prev.next = newNode;
+        this.length++;
+        return true;
+      }
     }
 
     const list = new SinglyLinkedList();
-    list.push("Hello");
-    list.push("darkness");
-    list.push("my");
-    list.push("old");
-    list.push("friend");
+    // list.push("Hello");
+    // list.push("darkness");
+    // list.push("my");
+    // list.push("old");
+    // list.push("friend");
+    list.push(111);
+    list.push(222);
+    list.push(333);
+    list.push(444);
   </script>
 </body>
 </html>
