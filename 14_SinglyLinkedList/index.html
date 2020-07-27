@@ -260,6 +260,41 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Remove
+    </h3>
+    <p>
+      Removing a node from the Linked List at a <strong>specific</strong> position
+    </p>
+    <h3>
+      Remove pseudocode
+    </h3>
+    <ul>
+      <li>
+        If the index is less than zero or greater than the length, return undefined
+      </li>
+      <li>
+        If the index is the same as the length-1, pop
+      </li>
+      <li>
+        If the index is 0, shift
+      </li>
+      <li>
+        Otherwise, using the get method, access the node at the index - 1
+      </li>
+      <li>
+        Set the next property on that node to be the next of the next node
+      </li>
+      <li>
+        Decrement the length
+      </li>
+      <li>
+        Return the value of the node removed
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -402,6 +437,17 @@
         prev.next = newNode;
         this.length++;
         return true;
+      };
+
+      remove = index => {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        const prevNode = this.get(index - 1);
+        const removedNode = prevNode.next;
+        prevNode.next = removedNode.next;
+        this.length--;
+        return removedNode;
       }
     }
 
