@@ -295,6 +295,61 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Reverse
+    </h3>
+    <p>
+      Reversing the Linked List <strong>in place</strong>
+    </p>
+    <h3>
+      Reverse pseudocode
+    </h3>
+    <ul>
+      <li>
+        Swap the head and the tail
+      </li>
+      <li>
+        Create a variable called next
+      </li>
+      <li>
+        Create a variable called prev
+      </li>
+      <li>
+        Create a variable called node and initialize it to the head property
+      </li>
+      <li>
+        Loop through the list
+      </li>
+      <li>
+        Set next to be the next property on whatever node is
+      </li>
+      <li>
+        Set the next property on the node to be whatever prev is
+      </li>
+      <li>
+        Set the node variable to be the value of the next variable
+      </li>
+    </ul>
+  </article>
+
+  <article>
+    <h2>
+      Recap
+    </h2>
+    <ul>
+      <li>
+        Singly Linked lists ara an exellect alternative to arrays whan insertion and deletion at the begginning are frequently required
+      </li>
+      <li>
+        Arrays contain a build in index whereas Linked Lists do not
+      </li>
+      <li>
+        The idea of a list data structure that consists of nodes is the foundation for other data structures like Stacks and Queues
+      </li>
+    </ul>
+  </article>
   
   <script>
 
@@ -320,6 +375,7 @@
         this.length = 0;
       };
 
+      // O(1)
       push = val => {
         const newNode = new Node(val);
 
@@ -334,6 +390,7 @@
         this.length++;
         return this;
       };
+
       // traverse = () => {
       //   let current = this.head;
       //   while (current) {
@@ -341,6 +398,8 @@
       //     current = current.next;
       //   }
       // }
+
+      // O(1) or O(N)
       pop = () => {
         // If there are no nodes in the list, return undefined
         if (this.length === 0) return undefined
@@ -370,6 +429,7 @@
         return currentNode;
       };
 
+      // O(1) or O(N)
       shift = () => {
         // If there are no nodes, return undefined
         if (this.length === 0) return undefined;
@@ -387,6 +447,7 @@
         return currentHead;
       };
 
+      // O(1)
       unshift = val => {
         // This function should accept a value
         // Create a new node using the value passed to the function
@@ -407,6 +468,7 @@
         return this;
       };
 
+      // O(N)
       get = index => {
         if (index < 0 || index >= this.length) return null;
         let counter = 0;
@@ -418,6 +480,7 @@
         return current;
       };
 
+      // O(1)
       set = (index, val) => {
         const foundNode = this.get(index);
         if (foundNode) {
@@ -427,6 +490,7 @@
         return false;
       };
 
+      // O(1)
       insert = (index, val) => {
         if (index < 0 || index > this.length) return false;
         if (index === this.length) return !!this.push(val);
@@ -439,6 +503,7 @@
         return true;
       };
 
+      // O(1) or O(N)
       remove = index => {
         if (index < 0 || index >= this.length) return undefined;
         if (index === 0) return this.shift();
@@ -448,7 +513,42 @@
         prevNode.next = removedNode.next;
         this.length--;
         return removedNode;
-      }
+      };
+
+      print = () => {
+        const arr = [];
+        let current = this.head;
+        while (current) {
+          arr.push(current.val);
+          current = current.next;
+        };
+        console.log(arr);
+      };
+
+      reverse = () => {
+        // Create a variable called node and initialize it to the head property
+        let node = this.head;
+        // Swap the head and the tail
+        this.head = this.tail;
+        this.tail = node;
+        // Create a variable called next
+        let next;
+        // Create a variable called prev
+        let prev = null;
+        
+        // Loop through the list
+        for (let i = 0; i < this.length; i++) {
+          // Set next to be the next property on whatever node is
+          next = node.next;
+          // Set the next property on the node to be whatever prev is
+          node.next = prev;
+          prev = node;
+          // Set the node variable to be the value of the next variable
+          node = next;
+        };
+
+        return this;
+      };
     }
 
     const list = new SinglyLinkedList();
