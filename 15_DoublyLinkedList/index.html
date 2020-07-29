@@ -56,6 +56,41 @@
       </ul>
     </p>
   </article>
+
+  <article>
+    <h3>
+      Popping
+    </h3>
+    <p>
+      Removing a node from the <strong>end</strong> of the Double linked list
+    </p>
+    <h3>
+      Popping pseudocode
+    </h3>
+    <ul>
+      <li>
+        If there is no head, return undefined
+      </li>
+      <li>
+        Store the current tail in a variable to return later
+      </li>
+      <li>
+        If the length is 1, set the head and tail to be null
+      </li>
+      <li>
+        Update the tail to be the previous Node
+      </li>
+      <li>
+        Set newTail's next to null
+      </li>
+      <li>
+        Decrement the length
+      </li>
+      <li>
+        Return the value removed
+      </li>
+    </ul>
+  </article>
   <script>
     class Node {
       constructor(val) {
@@ -90,6 +125,28 @@
         // Increment the length
         this.length++;
         return this;
+      };
+
+      pop = () => {
+        // If there is no head, return undefined
+        if (this.length === 0) return undefined;
+        // Store the current tail in a variable to return later
+        const popedNode = this.tail;
+        // If the length is 1, set the head and tail to be null
+        if (this.length === 1) {
+          this.head = null;
+          this.tail = null;
+        } else {
+          // Update the tail to be the previous Node
+          this.tail = popedNode.prev;
+          // Set newTail's next to null
+          this.tail.next = null;
+          poppedNode.prev = null;
+        }
+        // Decrement the length
+        this.length--;
+        // Return the value removed
+        return popedNode;
       }
     };
 
