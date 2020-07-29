@@ -22,9 +22,43 @@
       It's <strong>almost</strong> always a tradeoff!
     </p>
   </article>
+
+  <article>
+    <h3>
+      Pushing
+    </h3>
+    <p>
+      Adding a node to the <strong>end</strong> of the Doubly Linked List
+    </p>
+    <h3>
+      Pushing pseudocode
+    </h3>
+    <p>
+      <ul>
+        <li>
+          Create a new node with the value passed to the function
+        </li>
+        <li>
+          If the head preoperty is null set the head and tail to be newly created node
+        </li>
+        <li>
+          If not, set the next property on the tail to be that node
+        </li>
+        <li>
+          Set the previous property on the newly created node to be the tail
+        </li>
+        <li>
+          Set the tail to be the newly created node
+        </li>
+        <li>
+          Increment the length
+        </li>
+      </ul>
+    </p>
+  </article>
   <script>
     class Node {
-      constructor() {
+      constructor(val) {
         this.val = val;
         this.next = null;
         this.prev = null;
@@ -36,9 +70,34 @@
         this.head = null;
         this.tail = null;
         this.length = 0;
+      };
+
+      push = val => {
+        // Create a new node with the value passed to the function
+        const newNode = new Node(val);
+        // If the head preoperty is null set the head and tail to be newly created node
+        if (this.length === 0) {
+          this.head = newNode;
+          this.tail = newNode;
+        // If not, set the next property on the tail to be that node
+        } else {
+          // Set the previous property on the newly created node to be the tail
+          this.tail.next = newNode;
+          newNode.prev = this.tail;
+          // Set the tail to be the newly created node
+          this.tail = newNode;
+        }
+        // Increment the length
+        this.length++;
+        return this;
       }
     };
-    
+
+    const list = new DoublyLinkedList();
+    list.push(99);
+    list.push(101);
+    list.push(103);
+
   </script>
 </body>
 </html>
