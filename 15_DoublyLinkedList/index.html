@@ -138,6 +138,54 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      Unshift
+    </h3>
+    <p>
+      Adding a node to the <strong>beggining</strong> of the Doubly Linked List
+    </p>
+    <h3>
+      Unshift pseudocode
+    </h3>
+    <ul>
+      <li>
+        Create a new node with the value passed to the function
+      </li>
+      <li>
+        If the length is 0
+        <ul>
+          <li>
+            Set the head to be the new node
+          </li>
+          <li>
+            Set the tail to be the new node
+          </li>
+        </ul>
+      </li>
+      <li>
+        Otherwise
+        <ul>
+          <li>
+            Set the prev property on the head of the list to be the new node
+          </li>
+          <li>
+            Set the next property of the new node to be the head property
+          </li>
+          <li>
+            Update th head to be the new node
+          </li>
+        </ul>
+      </li>
+      <li>
+        Increment the length
+      </li>
+      <li>
+        Return list
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(val) {
@@ -188,7 +236,7 @@
           this.tail = popedNode.prev;
           // Set newTail's next to null
           this.tail.next = null;
-          poppedNode.prev = null;
+          popedNode.prev = null;
         }
         // Decrement the length
         this.length--;
@@ -219,7 +267,30 @@
         this.length--;
         // Return the old head
         return oldHead;
-      }
+      };
+
+      unshift = val => {
+        // Create a new node with the value passed to the function
+        const newNode = new Node(val);
+        // If the length is 0
+        if (this.length === 0) {
+          // Set the head to be the new node
+          this.head = newNode;
+          // Set the tail to be the new node
+          this.tail = newNode;
+        } else {
+          // Set the prev property on the head of the list to be the new node
+          this.head.prev = newNode;
+          // Set the next property of the new node to be the head property
+          newNode.next = this.head;
+          // Update th head to be the new node
+          this.head = newNode
+        }
+        // Increment the length
+        this.length++;
+        // Return list
+        return this;
+      };
     };
 
     const list = new DoublyLinkedList();
