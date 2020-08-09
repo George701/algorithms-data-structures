@@ -222,6 +222,34 @@
       </li>
     </ul>
   </article>
+  
+  <article>
+    <h3>
+      Set
+    </h3>
+    <p>
+      Replacing the value of a node to the in a Doubly Linked List
+    </p>
+    <h3>
+      Set pseudocode
+    </h3>
+    <ul>
+      <li>
+        Create a variable which is the result of the <strong>get</strong> method at the index passed to the function
+        <ul>
+          <li>
+            If the <strong>get</strong> method returns a valid node, set the value of that node to be the value passed to the function
+          </li>
+          <li>
+            Return true
+          </li>
+        </ul>
+      </li>
+      <li>
+        Otherwise, return false
+      </li>
+    </ul>
+  </article>
 
   <script>
     class Node {
@@ -354,6 +382,16 @@
 
         return current;
       };
+
+      set = (index, value) => {
+        const foundNode = this.get(index);
+        if (foundNode !== null) {
+          foundNode.val = value;
+          return true
+        };
+
+        return false;
+      }
     };
 
     const list = new DoublyLinkedList();
