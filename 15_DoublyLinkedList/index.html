@@ -186,6 +186,43 @@
     </ul>
   </article>
 
+  <article>
+    <h3>GET</h3>
+    <p>
+      Accessing a node in a Doubly Linked List by its position
+    </p>
+    <h3>
+      Get Pseudocode
+    </h3>
+    <ul>
+      <li>
+        If index is less than 0 or greater or equal to the length, return null
+      </li>
+      <li>
+        If the index is less than or equal to half the length of the list
+          <ul>
+            <li>
+              Loop through the list starting from the head and loop towards the middle
+            </li>
+            <li>
+              Return the node once it is found
+            </li>
+          </ul>
+      </li>
+      <li>
+        If the index is greater than half the length of the list
+          <ul>
+            <li>
+              Loop through the list starting from the tail and loop towards the middle
+            </li>
+            <li>
+              Return the node once it is found
+            </li>
+          </ul>
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(val) {
@@ -291,12 +328,42 @@
         // Return list
         return this;
       };
+
+      get = index => {
+        if (index < 0 || index >= this.length) return null;
+        let count, current;
+        if (index <= this.length/2) {
+          count = 0;
+          current = this.head;
+
+          while (count !== index) {
+            current = current.next;
+            count++
+          };
+
+        } else {
+          count = this.length - 1;
+          current = this.tail;
+
+          while (count !== index) {
+            current = current.prev;
+            count--;
+          };
+
+        };
+
+        return current;
+      };
     };
 
     const list = new DoublyLinkedList();
-    list.push("Harry");
-    list.push("Ron");
-    list.push("Hermione");
+    list.push("Harry Potter");
+    list.push("Ron Weasley");
+    list.push("Hermione Granger");
+    list.push("Sirius Black");
+    list.push("Draco Malfoy");
+    list.push("Luna Lovegood");
+    list.push("Neville Longbottom");
 
   </script>
 </body>
