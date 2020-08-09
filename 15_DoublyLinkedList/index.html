@@ -286,6 +286,44 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      Remove
+    </h3>
+    <p>
+      Removing a node in a Doubly Linked List by a certain position
+    </p>
+    <h3>
+      Remove pseudocode
+    </h3>
+    <ul>
+      <li>
+        If the index is less than zero or greater than or equal to the length return undefined
+      </li>
+      <li>
+        If the index is 0, use <strong>shift</strong>
+      </li>
+      <li>
+        If the index is the same a the length -1, use <strong>pop</strong>
+      </li>
+      <li>
+        Use the <strong>get</strong> method to retrieve the item to be removed
+      </li>
+      <li>
+        Update the next and prev properties to remove the found node from the list
+      </li>
+      <li>
+        Set next and prev to null the found node;
+      </li>
+      <li>
+        Decrement the length
+      </li>
+      <li>
+        Return node
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(val) {
@@ -448,6 +486,19 @@
         this.length++;
         // Return true
         return true;
+      };
+
+      remove = index => {
+        if (index < 0 || index > this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        const removedNode = this.get(index);
+        removedNode.prev.next = removedNode.next;
+        removedNode.next.prev = removedNode.prev;
+        removedNode.next = null;
+        removedNode.prev = null;
+        this.length--;
+        return removedNode;
       };
 
       print = () => {
