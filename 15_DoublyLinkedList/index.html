@@ -251,6 +251,41 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      Insert
+    </h3>
+    <p>
+      Adding a node in a Doubly Linked List by a certain position
+    </p>
+    <h3>
+      Insert pseudocode
+    </h3>
+    <ul>
+      <li>
+        If the index is less than zero or greater than or equal to the length return false
+      </li>
+      <li>
+        If the index is 0, use <strong>unshift</strong>
+      </li>
+      <li>
+        If the index is the same as the length, use <strong>push</strong>
+      </li>
+      <li>
+        Use the <strong>get</strong> method to access the index -1
+      </li>
+      <li>
+        Set the next and prev properties on the correct nodes to lik everything together
+      </li>
+      <li>
+        Increment length
+      </li>
+      <li>
+        Return true
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(val) {
@@ -391,17 +426,49 @@
         };
 
         return false;
-      }
+      };
+
+      insert = (index, value) => {
+        // If the index is less than zero or greater than or equal to the length return false
+        if (index < 0 || index > this.length) return false;
+        // If the index is 0, use unshift
+        if (index === 0) !!this.unshift(value);
+        // If the index is the same as the length, use push
+        if (index === this.length) !!this.push(value);
+
+        // Use the get method to access the index -1
+        const beforeNode = this.get(index-1);
+        const afterNode = beforeNode.next;
+        // Set the next and prev properties on the correct nodes to lik everything together
+        const newNode = new Node(value);
+
+        beforeNode.next = newNode; newNode.prev = beforeNode;
+        newNode.next = afterNode; afterNode.prev = newNode;
+        // Increment length
+        this.length++;
+        // Return true
+        return true;
+      };
+
+      print = () => {
+        const arr = [];
+        let current = this.head;
+        while (current) {
+          arr.push(current.val);
+          current = current.next;
+        };
+        console.log(arr);
+      };
     };
 
     const list = new DoublyLinkedList();
-    list.push("Harry Potter");
-    list.push("Ron Weasley");
-    list.push("Hermione Granger");
-    list.push("Sirius Black");
-    list.push("Draco Malfoy");
-    list.push("Luna Lovegood");
-    list.push("Neville Longbottom");
+    list.push("Harry Potter");        // 0
+    list.push("Ron Weasley");         // 1
+    list.push("Hermione Granger");    // 2
+    list.push("Sirius Black");        // 3
+    list.push("Draco Malfoy");        // 4
+    list.push("Luna Lovegood");       // 5
+    list.push("Neville Longbottom");  // 6
 
   </script>
 </body>
