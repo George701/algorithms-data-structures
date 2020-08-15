@@ -324,6 +324,21 @@
     </ul>
   </article>
 
+  <article>
+    <h2>Recap</h2>
+    <ul>
+      <li>
+        Doubly Linked Lists are almost identical to Singly Linked Lists except there is an additional pointer to previous nodes
+      </li>
+      <li>
+        Better than Singly Linked Lists for finding nodes and can be done in half the time
+      </li>
+      <li>
+        However, they do take up more memory considering the extra pointer
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(val) {
@@ -332,6 +347,19 @@
         this.prev = null;
       }
     };
+
+    /*
+    --------------------------------------------------
+    BIG O
+    
+    Insertion: O(1)
+    Removal: O(1)
+    Searching: O(N) !O(N/2)
+    Access: O(N)
+    
+    
+    --------------------------------------------------
+    */
 
     class DoublyLinkedList {
       constructor() {
@@ -500,7 +528,7 @@
         this.length--;
         return removedNode;
       };
-
+      
       print = () => {
         const arr = [];
         let current = this.head;
