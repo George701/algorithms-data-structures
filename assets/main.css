@@ -30,3 +30,13 @@ li a:hover{
   transition: all 0.3s ease-out;
   color: #9575cd;
 }
+
+:root{
+  --danger-color: #f44336;
+  --warning-color: #ff9800;
+  --success-color: #4caf50;
+}
+
+.danger-text{
+  color: var(--danger-color);
+}
