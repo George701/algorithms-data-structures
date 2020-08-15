@@ -24,7 +24,7 @@
     <p>
       As you pile it up the last thing (or the topmost thing) is what gets removed first.
     </p>
-    <img src="../assets/images/stackVisualisation.png" alt="Stack Pic"/>
+    <img width='100%'' src="../assets/images/stackVisualisation.png" alt="Stack Pic"/>
     <h3>
       Where Stacks are used
     </h3>
@@ -44,6 +44,98 @@
     </h3>
   </article>
 
+  <article>
+    <h3>
+      Pushing Pseudocode
+    </h3>
+    <ul>
+      <li>
+        The function should accept a value
+      </li>
+      <li>
+        Create a new node with that value
+      </li>
+      <li>
+        If there are no nodes in the stack, set the first and last property to be the newly created node
+      </li>
+      <li>
+        If there is at least one node, create a variable that stores the current first property on the stack
+      </li>
+      <li>
+        Reset the first property to be the newly created node
+      </li>
+      <li>
+        Set the next property on the node to be the previously created variable
+      </li>
+      <li>
+        Increment the size of the stack by 1
+      </li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>
+      Pop pseudocode
+    </h3>
+    <ul>
+      <li>
+        If there are no nodes in the stack, return null
+      </li>
+      <li>
+        Create a tempryary variable to store the first property on the stack
+      </li>
+      <li>
+        If there is only 1 node, set the first and last property to be null
+      </li>
+      <li>
+        If there is more than one node, set the first property to be the next propery on the current first
+      </li>
+      <li>
+        Decrement the size by 1
+      </li>
+      <li>
+        return the value of the node removed
+      </li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>
+      BIG o of stacks
+    </h3>
+    <p>
+      <div>
+        <span>Insertion</span>
+         - 
+        <span>
+          <strong>O(1)</strong>
+        </span>
+      </div>
+      <div>
+        <span>Removal</span>
+         - 
+        <span>
+          <strong>O(1)</strong>
+        </span>
+      </div>
+      <div>
+        <span>Searching</span>
+         - 
+        <span>
+          <strong>O(N)</strong>
+        </span>
+      </div>
+      <div>
+        <span>Access</span>
+         - 
+        <span>
+          <strong>O(N)</strong>
+        </span>
+      </div>
+    </p>
+  </article>
+
+  <script src="../assets/main.js"></script>
   <script>
     let stack = [];
     stack.push('google');
@@ -57,6 +149,55 @@
     stack.unshift('resized file');
     stack.unshift('cloned out wrinkle');
     stack.shift(); // LAST thing that was added will be the FIRST to be removed
+
+    stack = new SinglyLinkedList();
+    stack.push('First');
+    stack.push('Second');
+    stack.push('Third');
+
+    stack.pop(); // Third
+
+    // In case of Singly Linked Lists it is better to use shift and unshift
+    // Because to iterate with the tail it is necessary to go through all List!!!
+
+
+    class Stack {
+      constructor(){
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+      };
+
+      push = val => {
+        let newNode = new Node(val);
+        if (!this.first){
+          this.first = newNode;
+          this.last = newNode;
+        } else {
+          let temp = this.first;
+          this.first = newNode;
+          this.first.next = temp;
+        };
+
+        return ++this.size;
+      };
+
+      pop = () => {
+        if(this.size === 0) return null;
+        var temp = this.first;
+        if(this.size === 1 && this.first === this.last){
+          this.last = null;
+        }
+        this.size--;
+        this.first = this.first.next;
+        return temp.val;
+      };
+    };
+
+    stack = new Stack();
+    stack.push(21);
+    stack.push(22);
+    stack.push(23);
   </script>
 </body>
 </html>
