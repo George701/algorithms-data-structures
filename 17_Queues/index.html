@@ -34,5 +34,100 @@
       </li>
     </ul>
   </article>
+
+  <article>
+    <h3>
+      Enqueue Pseudocode
+    </h3>
+    <ul>
+      <li>
+        This function accepts some value
+      </li>
+      <li>
+        Create a new node using that value passed to the function
+      </li>
+      <li>
+        If there are no nodes in the queue, set this node to be the first and last property of the queue
+      </li>
+      <li>
+        Otherwise, set the next property on the current last to be that node, and then set the last property of the queue to be that node
+      </li>
+      <li>
+        Increment the size
+      </li>
+    </ul>
+    <h3>
+      Dequeue pseudocode
+    </h3>
+    <ul>
+      <li>
+        If there is no first property, just return null
+      </li>
+      <li>
+        Store the first property in a variable
+      </li>
+      <li>
+        See if the first is the same as the last (check if there is only 1 node). If so, set the first and last to be null
+      </li>
+      <li>
+        If there is more than one node, set the first element property to be the next property of first
+      </li>
+      <li>
+        Decrement the size by one
+      </li>
+      <li>
+        Return the value of the node dequeued
+      </li>
+    </ul>
+  </article>
 </body>
+<script>
+  let q = [];
+  // add to the end
+  q.push('First');
+  q.push('Second');
+  q.push('Third');
+  // remove from beggining
+  q.shift();
+
+  class Node {
+    constructor(value){
+      this.value = value;
+      this.next = null;
+    }
+  };
+
+  class Queue {
+    constructor(){
+      this.first = null;
+      this.last = null;
+      this.size = 0;
+    }
+
+    enqueue = val => {
+      const newNode = new Node(val);
+      if (!this.first) {
+        this.first = newNode;
+        this.last = newNode;
+      } else {
+        this.last.next = newNode;
+        this.last = newNode;
+      }
+      return ++this.size;
+    }
+
+    dequeue = () => {
+      if (!this.first) return null;
+      const temp = this.first;
+      if (this.first === this.last) {
+        this.last = null;
+      }
+      this.first = this.first.next;
+      this.size--;
+      return temp.value;
+    }
+  };
+
+  let qu = new Queue();
+</script>
 </html>
