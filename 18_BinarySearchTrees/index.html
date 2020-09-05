@@ -15,7 +15,7 @@
     <p>
       A data structure that consist of nodes in <strong>paren/child</strong> relationship
     </p>
-    <div>
+    <p>
       <div>
         <div style="color: blue">
           Lists are <strong>linear</strong>
@@ -24,7 +24,7 @@
           Trees are <strong>nonlinear</strong>
         </div>
       </div>
-    </div>
+    </p>
     <p>
       A node cannot reference another node that is not in parent/child relationship! No references to siblings!
     </p>
@@ -115,5 +115,27 @@
       </li>
     </ul>
   </article>
+
+  <script>
+    class Node {
+      constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+      }
+    };
+
+    class BinarySearchTree {
+      constructor(){
+        this.root = null;
+      }
+    };
+
+    let tree = new BinarySearchTree();
+    tree.root = new Node(10);
+    tree.root.right = new Node(15);
+    tree.root.left = new Node(5);
+    tree.root.left.right = new Node(8);
+  </script>
 </body>
 </html>
