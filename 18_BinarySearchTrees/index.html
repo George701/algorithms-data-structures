@@ -116,6 +116,73 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      Inserting a node
+    </h3>
+    <ul>
+
+      <li>
+        Create a node
+      </li>
+
+      <li>
+        Starting at the root
+        <ul>
+
+          <li>
+            Check if there is a root, if not node becomes the root
+          </li>
+
+          <li>
+            If there is a root, check that node is greater or less than the value of the root
+          </li>
+
+          <li>
+            If it is greater:
+            <ul>
+
+              <li>
+                Check if there is a node at the right
+              </li>
+
+              <li>
+                If there is, move to that node and repeat the steps
+              </li>
+
+              <li>
+                If no, add that node a s right property
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            If it is less:
+            <ul>
+
+              <li>
+                Check to see if there is a node to the left
+              </li>
+
+              <li>
+                If there is, move to that node and repeat the steps
+              </li>
+
+              <li>
+                If no, add node as a new left
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+      <li>
+        Return the tree
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(value){
@@ -128,14 +195,45 @@
     class BinarySearchTree {
       constructor(){
         this.root = null;
-      }
+      };
+
+      insert = value => {
+        const newNode = new Node(value);
+
+        if (this.root === null) {
+          this.root = newNode;
+          return this;
+        };
+
+        let current = this.root;
+        while (true) {
+
+          if (value === current.value) return undefined;
+
+          if (value < current.value) {
+
+            if (current.left === null) {
+              current.left = newNode;
+              return this;
+            };
+            current = current.left;
+          } else if (value > current.value) {
+
+            if (current.right === null) {
+              current.right = newNode;
+              return this;
+            };
+            current = current.right;
+          };
+        };
+      };
     };
 
+    //    10
+    //  5    15
+    // 2 6  14 16
+
     let tree = new BinarySearchTree();
-    tree.root = new Node(10);
-    tree.root.right = new Node(15);
-    tree.root.left = new Node(5);
-    tree.root.left.right = new Node(8);
   </script>
 </body>
 </html>
