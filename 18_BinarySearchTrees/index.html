@@ -183,6 +183,60 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      Find Pseudocode
+    </h3>
+    <ul>
+      <li>
+        Starting at the root
+        <ul>
+          <li>
+            Check if there is a root, if not we're done searching
+          </li>
+          <li>
+            If there is a root, check if the value of the new node is the value we are looking for. If we found it, we are done
+          </li>
+          <li>
+            If not, check to see if the value is greater than or less than the value of the root
+          </li>
+          <li>
+            If it is greater
+            <ul>
+              <li>
+                Check to see if there is a node to the right
+                <ul>
+                  <li>
+                    If there is, move to that node and repeat these steps
+                  </li>
+                  <li>
+                    If there is not, we are done searching
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            If it is lesser
+            <ul>
+              <li>
+                Check to see if there is a node to the left
+                <ul>
+                  <li>
+                    If there is, move to that node and repeat these steps
+                  </li>
+                  <li>
+                    If there is not, we are done searching
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(value){
@@ -227,6 +281,38 @@
           };
         };
       };
+      find = val => {
+        if (this.root === null) return undefined;
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+          if (val < current.value) {
+            current = current.left;
+          } else if (val > current.value) {
+            current = current.right;
+          } else {
+            found = true;
+          }
+        }
+        if (!found) return undefined;
+        return current;
+      };
+      contains = val => {
+        if (this.root === null) return false;
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+          if (val < current.value) {
+            current = current.left;
+          } else if (val > current.value) {
+            current = current.right;
+          } else {
+            found = true;
+            return true;
+          }
+        }
+        return false;
+      }
     };
 
     //    10
@@ -234,6 +320,13 @@
     // 2 6  14 16
 
     let tree = new BinarySearchTree();
+    tree.insert(10);
+    tree.insert(5);
+    tree.insert(15);
+    tree.insert(2);
+    tree.insert(6);
+    tree.insert(14);
+    tree.insert(16);
   </script>
 </body>
 </html>
