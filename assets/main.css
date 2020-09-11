@@ -31,6 +31,10 @@ li a:hover{
   color: #9575cd;
 }
 
+img {
+  width: 100%;
+}
+
 :root{
   --danger-color: #f44336;
   --warning-color: #ff9800;
