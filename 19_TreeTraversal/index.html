@@ -23,5 +23,155 @@
     <hr>
     <img src="../assets/images/DFS-inOrder.png" alt="">
   </article>
+
+  <article>
+    <h3>
+      BFS
+    </h3>
+    <h5>
+      <strong>
+        Steps - Iteratively
+      </strong>
+    </h5>
+
+    <ul>
+      <li>
+        Create a queue (this can be an array) and a variable to store the values of nodes visited
+      </li>
+      <li>
+        Place the root node in the queue
+      </li>
+      <li>
+        Loop as long as there is anything in the queue
+        <ul>
+          <li>
+            Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
+          </li>
+          <li>
+            If there is a left property on the node dequeued - add it to the queue
+          </li>
+          <li>
+            If there is a right property on the node dequeued - add it to the queue
+          </li>
+        </ul>
+      </li>
+      <li>
+        Return the variable that stores the values
+      </li>
+    </ul>
+  </article>
+
+  <script>
+    class Node {
+      constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+      }
+    };
+
+    class BinarySearchTree {
+      constructor(){
+        this.root = null;
+      };
+
+      insert = value => {
+        const newNode = new Node(value);
+
+        if (this.root === null) {
+          this.root = newNode;
+          return this;
+        };
+
+        let current = this.root;
+        while (true) {
+
+          if (value === current.value) return undefined;
+
+          if (value < current.value) {
+
+            if (current.left === null) {
+              current.left = newNode;
+              return this;
+            };
+            current = current.left;
+          } else if (value > current.value) {
+
+            if (current.right === null) {
+              current.right = newNode;
+              return this;
+            };
+            current = current.right;
+          };
+        };
+      };
+      find = val => {
+        if (this.root === null) return undefined;
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+          if (val < current.value) {
+            current = current.left;
+          } else if (val > current.value) {
+            current = current.right;
+          } else {
+            found = true;
+          }
+        }
+        if (!found) return undefined;
+        return current;
+      };
+      contains = val => {
+        if (this.root === null) return false;
+        let current = this.root;
+        let found = false;
+        while (current && !found) {
+          if (val < current.value) {
+            current = current.left;
+          } else if (val > current.value) {
+            current = current.right;
+          } else {
+            found = true;
+            return true;
+          }
+        }
+        return false;
+      };
+
+      BFS = () => {
+
+        let node = this.root,
+            data = [],
+            queue = [];
+            
+        queue.push(node);
+
+        while(queue.length) {
+          node = queue.shift();
+          data.push(node.value);
+
+          if (node.left) queue.push(node.left);
+          if (node.right) queue.push(node.right);
+        };
+
+        return data;
+      }
+    };
+
+    //    10
+    //  5    15
+    // 2 6  14 16
+
+    let tree = new BinarySearchTree();
+    tree.insert(10);
+    tree.insert(5);
+    tree.insert(15);
+    tree.insert(2);
+    tree.insert(6);
+    tree.insert(14);
+    tree.insert(16);
+
+    console.log(tree.BFS());
+  </script>
 </body>
 </html>
