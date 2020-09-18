@@ -96,6 +96,38 @@
     </ul>
   </article>
 
+  <article>
+    <h3>
+      DFS - PostOrder
+    </h3>
+
+    <ul>
+      <li>
+        Create a variable to store the values of nodes visited
+      </li>
+      <li>
+        Store the root of the BST in a variable called current
+      </li>
+      <li>
+        Write a helper function witch accepts a nodes
+        <ul>
+          <li>
+            If the node has left property, call the helper function with the left property on the node
+          </li>
+          <li>
+            If the node has a right property, call the helper function with the right property on the node
+          </li>
+          <li>
+            Push the values of the node to the variable that stores the values
+          </li>
+          <li>
+            Invoke the helper function with the current variable
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+
   <script>
     class Node {
       constructor(value){
@@ -193,7 +225,7 @@
       };
 
       DFSPreOrder = () => {
-        let data = [];
+        const data = [];
 
         const traverse = node => {
           data.push(node.value)
@@ -206,6 +238,19 @@
 
         return data;
       };
+
+      DFSPostOrder = () => {
+        const data = [];
+
+        const traverse = node => {
+          if (node.left) traverse(node.left);
+          if (node.right) traverse(node.right);
+          data.push(node.value);
+        };
+
+        traverse(this.root);
+        return data;
+      }
     };
 
     //    10
@@ -221,8 +266,9 @@
     tree.insert(14);
     tree.insert(16);
 
-    console.log(tree.BFS());
-    console.log(tree.DFSPreOrder());
+    console.log('BFS', tree.BFS());
+    console.log('DFSPreOrder', tree.DFSPreOrder());
+    console.log('DFSPostOrder', tree.DFSPostOrder());
   </script>
 </body>
 </html>
