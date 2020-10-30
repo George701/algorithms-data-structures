@@ -90,6 +90,43 @@
     </p>
   </article>
 
+  <article>
+    <h3>
+      Dealing with collisions
+    </h3>
+    <p>
+      Even with a large array and a great hash function, collisions are inevitable
+    </p>
+    <ol>
+      <li>
+        Separate Chaining
+      </li>
+      <li>
+        Linear Probing
+      </li>
+    </ol>
+    <hr>
+    <h3>
+      Separate Chaining
+    </h3>
+    <p>
+      With <i>separate chaining</i>, at each index in our array we store values using a more sophisticated data structure (e.g. an array or a linked list)
+    </p>
+    <p>
+      This allows us to store multiple key-value pairs at the same index.
+    </p>
+    <hr>
+    <h3>
+      Linear Probing
+    </h3>
+    <p>
+      With <i>linear probing</i>, when we find a collision, we search through the array to find the next empty slot
+    </p>
+    <p>
+      Unlike with separate chaining, this allows us to store a single key-value at each index
+    </p>
+  </article>
+
   <script>
     const hash = (key, arrLength) => {
       let total = 0;
