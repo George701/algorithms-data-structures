@@ -127,6 +127,40 @@
     </p>
   </article>
 
+  <article>
+    <h3>
+      Set
+    </h3>
+    <ol>
+      <li>
+        Accepts a key and value
+      </li>
+      <li>
+        Hashes the key
+      </li>
+      <li>
+        Stores the key-value pair in the hash table array via separate chaining
+      </li>
+    </ol>
+    <h3>
+      Get
+    </h3>
+    <ol>
+      <li>
+        Accepts a key and value
+      </li>
+      <li>
+        Hashes the key
+      </li>
+      <li>
+        Retrieves the key-value pair in the hash table
+      </li>
+      <li>
+        If the key isn't found, returns <i>undefined</i>
+      </li>
+    </ol>
+  </article>
+
   <script>
     const hash = (key, arrLength) => {
       let total = 0;
@@ -138,6 +172,23 @@
       }
       return total;
     };
+
+    class HashTable {
+      constructor(size = 53){
+        this.keyMap = new Array(size);
+      };
+
+      _hash(key){
+        let total = 0;
+        const WEIRD_PRIME = 31;
+        for (let i = 0; i < Math.min(key.length, 100); i++) {
+          let char = key[i];
+          let value = char.charCodeAt(0) - 96;
+          total = (total * WEIRD_PRIME + value) % arrLength
+        }
+        return total;
+      }
+    }
 
     console.log(hash('pink', 10));
     console.log(hash('orange', 10));
