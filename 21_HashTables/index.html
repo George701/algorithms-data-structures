@@ -147,7 +147,7 @@
     </h3>
     <ol>
       <li>
-        Accepts a key and value
+        Accepts a key
       </li>
       <li>
         Hashes the key
@@ -199,16 +199,29 @@
         return index;
       };
       get(key){
-
+        let index = this._hash(key);
+        if (this.keyMap[index]) {
+          for (let i = 0; i < this.keyMap[index].length; i++) {
+            if (this.keyMap[index][i][0] === key) return this.keyMap[index][i][1];
+          }
+        }
+        return undefined;
       };
     }
 
-let ht = new HashTable();
+  let ht = new HashTable();
+  ht.set('pink', '#d81b60');
+  ht.set('red', '#f44336');
+  ht.set('purple', '#9c27b0');
+  ht.set('blue', '#1e88e5');
+  ht.set('green', '#43a047');
+  ht.set('cyan', '#00acc1');
+  ht.set('lime', '#cddc39');
+  ht.set('yellow', '#ffeb3b');
+  ht.set('amber', '#ffc107');
+  ht.set('orange', '#ff9800');
+  ht.set('teal', '#009688');
 
-    // console.log(hash('pink', 10));
-    // console.log(hash('orange', 10));
-    // console.log(hash('cyan', 10));
-    // console.log(hash('maroon', 10));
 
   </script>
 </body>
