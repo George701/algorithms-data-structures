@@ -161,6 +161,25 @@
     </ol>
   </article>
 
+  <article>
+    <h3>
+      Keys
+    </h3>
+    <ol>
+      <li>
+        Loop through the hash table array and returns an array of keys in the table
+      </li>
+    </ol>
+    <h3>
+      Values
+    </h3>
+    <ol>
+      <li>
+        Loop through the hash table array and returns an array of keys in the table
+      </li>
+    </ol>
+  </article>
+
   <script>
     const hash = (key, arrLength) => {
       let total = 0;
@@ -207,6 +226,37 @@
         }
         return undefined;
       };
+
+      values() {
+        let valuesArr = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+          if (this.keyMap[i]) {
+            for (let j = 0; j < this.keyMap[i].length; j++) {
+              let value = this.keyMap[i][j][1];
+              if (!valuesArr.includes(value)) {
+                valuesArr.push(value);
+              }
+            }
+            // console.log(this.keyMap[i]);
+          }
+        }
+        return valuesArr;
+      };
+
+      keys() {
+        let keysArr = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+          if (this.keyMap[i]) {
+            for (let j = 0; j < this.keyMap[i].length; j++) {
+              let keyTemp = this.keyMap[i][j][0];
+              if (!keysArr.includes(keyTemp)) {
+                keysArr.push(keyTemp);
+              }
+            }
+          }
+        }
+        return keysArr;
+      };
     }
 
   let ht = new HashTable();
@@ -221,6 +271,10 @@
   ht.set('amber', '#ffc107');
   ht.set('orange', '#ff9800');
   ht.set('teal', '#009688');
+  // duplicates values
+  ht.set('tblue', '#009688');
+  ht.set('ttest', '#009688');
+  ht.set('tblomber', '#009688');
 
 
   </script>
