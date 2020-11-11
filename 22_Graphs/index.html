@@ -20,9 +20,32 @@
       A <strong>graph data structure</strong> consists of a finite (and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected <strong>graph</strong> or a set of ordered pairs for a directed <strong>graph</strong>.
     </p>
   </article>
-
-  <script>
-    
-  </script>
+  <article>
+    <h3>
+      Adding a vertex
+    </h3>
+    <ul>
+      <li>
+        Write a method called addVertex, which accepts the name vertex
+      </li>
+      <li>
+        It should add a key to the adjacency list with the name of the vertex and set its value to be an empty array
+      </li>
+    </ul>
+  </article>
 </body>
+<script>
+  class Graph {
+    constructor() {
+      this.adjacencyList = {};
+    };
+    addVertex(vertex) {
+      if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    }
+  }
+
+  const g = new Graph;
+  g.addVertex('Tokyo');
+  g.addVertex('San Francisco');
+</script>
 </html>
