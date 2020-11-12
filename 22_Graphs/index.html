@@ -33,6 +33,22 @@
       </li>
     </ul>
   </article>
+  <article>
+    <h3>
+      Add an edge
+    </h3>
+    <ul>
+      <li>
+        Function must accept two vertices
+      </li>
+      <li>
+        The function should find in the adjacency list the key of first vertex and push second vertex to the array
+      </li>
+      <li>
+        The function should find in the adjacency list the key of second vertex and push first vertex to the array
+      </li>
+    </ul>
+  </article>
 </body>
 <script>
   class Graph {
@@ -41,11 +57,21 @@
     };
     addVertex(vertex) {
       if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    };
+    addEdge(v1, v2) {
+      this.adjacencyList[v1].push(v2)
+      this.adjacencyList[v2].push(v1)
     }
   }
 
   const g = new Graph;
   g.addVertex('Tokyo');
   g.addVertex('San Francisco');
+  g.addVertex('Dallas');
+  g.addVertex('Aspen');
+
+  g.addEdge('Tokyo', 'San Francisco');
+  g.addEdge('Dallas', 'San Francisco');
+  g.addEdge('Dallas', 'Aspen');
 </script>
 </html>
