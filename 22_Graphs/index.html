@@ -49,6 +49,22 @@
       </li>
     </ul>
   </article>
+  <article>
+    <h3>
+      Remove an edge
+    </h3>
+    <ul>
+      <li>
+        Function must accepts two vertices
+      </li>
+      <li>
+        The functions must reassign the key of vertex1 to be an array that does not contain vertex2
+      </li>
+      <li>
+        The functions must reassign the key of vertex2 to be an array that does not contain vertex1
+      </li>
+    </ul>
+  </article>
 </body>
 <script>
   class Graph {
@@ -61,6 +77,10 @@
     addEdge(v1, v2) {
       this.adjacencyList[v1].push(v2)
       this.adjacencyList[v2].push(v1)
+    };
+    removeEdge(v1, v2) {
+      this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v !== v2);
+      this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v !== v1);
     }
   }
 
