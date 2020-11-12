@@ -65,6 +65,23 @@
       </li>
     </ul>
   </article>
+  <article>
+    <h3>Remove vertex</h3>
+    <ul>
+      <li>
+        Function accepts a vertex
+      </li>
+      <li>
+        The function must loop as long as there are any other vertices in the adjacency list for that vertex
+      </li>
+      <li>
+        Inside the loop, call <strong>removeEdge</strong> function with the vertex we are removing and any values in the adjacency list for that vertex
+      </li>
+      <li>
+        Delete the key
+      </li>
+    </ul>
+  </article>
 </body>
 <script>
   class Graph {
@@ -81,6 +98,13 @@
     removeEdge(v1, v2) {
       this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v !== v2);
       this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v !== v1);
+    };
+    removeVertex(vertex){
+        while(this.adjacencyList[vertex].length){
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
+        }
+        delete this.adjacencyList[vertex]
     }
   }
 
