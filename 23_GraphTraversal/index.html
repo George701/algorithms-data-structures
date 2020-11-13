@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../assets/main.css">
+  <title>Graph Traversal</title>
+</head>
+<body>
+ <article>
+   <h2>
+     Graph Traversal
+   </h2>
+   <div>
+     <div>
+       Visiting/Updating/Checking
+     </div>
+     <div>
+       each vertex in a graph
+     </div>
+  </div>
+
+  <h3>
+    Graph Traversal uses
+  </h3>
+  <ul>
+    <li>
+      Peer to peer networking
+    </li>
+    <li>
+      Web crawlers
+    </li>
+    <li>
+      Finding 'closest' matches/recommendations
+    </li>
+    <li>
+      Shortest paths/problems
+      <ul>
+        <li>
+          GPS Navigation
+        </li>
+        <li>
+          Solving mazes
+        </li>
+        <li>
+          AI shortest path to win the game
+        </li>
+      </ul>
+    </li>
+  </ul>
+ </article>
+</body>
+<script>
+  class Graph {
+    constructor() {
+      this.adjacencyList = {};
+    };
+    addVertex(vertex) {
+      if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    };
+    addEdge(v1, v2) {
+      this.adjacencyList[v1].push(v2)
+      this.adjacencyList[v2].push(v1)
+    };
+    removeEdge(v1, v2) {
+      this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v !== v2);
+      this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v !== v1);
+    };
+    removeVertex(vertex){
+        while(this.adjacencyList[vertex].length){
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
+        }
+        delete this.adjacencyList[vertex]
+    }
+  }
+</script>
+</html>
