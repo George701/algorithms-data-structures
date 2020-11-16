@@ -50,6 +50,45 @@
     </li>
   </ul>
  </article>
+ <article>
+   <h3>
+     Depth First Traversal (recursive)
+   </h3>
+   <ul>
+     <li>
+      The function should accept a string node
+     </li>
+     <li>
+       Create a list to store the end result, to be returned at the very end
+     </li>
+     <li>
+       Create an object to store visited vertices
+     </li>
+     <li>
+       Create a helper function which accepts a vertex
+       <ul>
+         <li>
+           The helper function must return early if the vertex is empty
+         </li>
+         <li>
+           The helper function must place the vertex it accepts it into the visited object and push that vertex into the result array
+         </li>
+         <li>
+           Loop over all of the values in the adjacencyList for that vertex 
+         </li>
+         <li>
+           If any of those values have not been visited, recursively invoke the helper function with that vertex
+         </li>
+       </ul>
+     </li>
+     <li>
+       Invoke the helper function
+     </li>
+     <li>
+       Return the result event
+     </li>
+   </ul>
+ </article>
 </body>
 <script>
   class Graph {
