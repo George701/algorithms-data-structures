@@ -88,6 +88,52 @@
        Return the result event
      </li>
    </ul>
+   <hr>
+   <h3>
+    Depth First Traversal (iterative)
+  </h3>
+  <ul>
+    <li>
+      The function should accept a starting node
+    </li>
+    <li>
+      Create a stack to help use keep track of vertices (use a list/array)
+    </li>
+    <li>
+      Create a list to store the end result, to be returned at the very end
+    </li>
+    <li>
+      Create an object to store visited vertices
+    </li>
+    <li>
+      Add the starting vertex to the stack, and mark it as visited
+    </li>
+    <li>
+      While the stack has something in it:
+      <ul>
+        <li>
+          Pop the next vertex from the stack
+        </li>
+        <li>
+          If that vertex hasn't been visited yet:
+          <ul>
+            <li>
+              Mark it as visited
+            </li>
+            <li>
+              Add it to the result list
+            </li>
+            <li>
+              Push all of its neighbors into the stack
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Return the result array
+    </li>
+  </ul>
  </article>
 </body>
 <script>
@@ -130,6 +176,28 @@
       })(start);
       return result;
     };
+
+    depthFirstIterative(start) {
+      const stack = [start];
+      const result = [];
+      const visited = {};
+      let currentVertex;
+
+      visited[start] = true;
+      while(stack.length) {
+        console.log(stack);
+        currentVertex = stack.pop();
+        result.push(currentVertex)
+
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+          if(!visited[neighbor]) {
+            visited[neighbor] = true;
+            stack.push(neighbor)
+          }
+        })
+      }
+      return result;
+    }
   }
 
   let g = new Graph();
