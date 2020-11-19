@@ -94,7 +94,7 @@
   </h3>
   <ul>
     <li>
-      The function should accept a starting node
+      The function should accept a starting vertex
     </li>
     <li>
       Create a stack to help use keep track of vertices (use a list/array)
@@ -134,6 +134,43 @@
       Return the result array
     </li>
   </ul>
+ </article>
+ <article>
+   <h3>
+     Breadth first search
+   </h3>
+   <p>
+     Visit neighbors at current depth first
+   </p>
+   <ul>
+    <li>
+      The function should accept a starting vertex
+    </li>
+    <li>
+      Create queue (you can use an array) and place he starting vertex in it 
+    </li>
+    <li>
+      Create an array to store visited vertices
+    </li>
+    <li>
+      Mark the starting vertex as visited
+    </li>
+    <li>
+      Loop as long as there is anything in the queue
+    </li>
+    <li>
+      Remove first vertex from the queue and push it into he array that stores visited vertices
+    </li>
+    <li>
+      Loop over each vertex in the adjacency list for the vertex you are visiting
+    </li>
+    <li>
+      If it is not inside the object that stores nodes visited, mark it as visited and enqueue hat vertex
+    </li>
+    <li>
+      Return the array of visited nodes
+    </li>
+   </ul>
  </article>
 </body>
 <script>
@@ -195,6 +232,27 @@
             stack.push(neighbor)
           }
         })
+      }
+      return result;
+    };
+
+    breadthFirst(start){
+      const queue = [start];
+      const result = [];
+      const visited = {};
+      visited[start] = true;
+      let currentVertex;
+
+      while (queue.length) {
+        currentVertex = queue.shift();
+        result.push(currentVertex);
+
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+          if(!visited[neighbor]) {
+            visited[neighbor] = true;
+            queue.push(neighbor);
+          }
+        });
       }
       return result;
     }
