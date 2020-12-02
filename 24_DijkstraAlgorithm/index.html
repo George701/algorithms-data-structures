@@ -27,6 +27,59 @@
       </li>
     </ol>
   </article>
+
+  <article>
+    <h3>
+      Dijkstra's Pseudocode
+    </h3>
+    <ul>
+      <li>
+        This function should accept a starting and ending vertex
+      </li>
+      <li>
+        Create an object (we'll call it distances) and set each key to be every vertex in the adjacency list with a value of infinity, except for the starting vertex which should have a value of 0
+      </li>
+      <li>
+        After setting a value in the distances object, add each vertex with a priority of infinity to the priority queue, except the starting vertex, which should be have a priority of 0 because that's where we begin
+      </li>
+      <li>
+        Create another object called previous and set each key to be every vertex in the adjacency list with a value of null
+      </li>
+      <li>
+        Start looping as long as there in anything in the priority queue
+        <ul>
+          <li>
+            Dequeue a vertex from the priority queue
+          </li>
+          <li>
+            If that vertex is the same as the ending vertex - we are done!
+          </li>
+          <li>
+            Otherwise loop through each value in the adjacency list at that vertex
+            <ul>
+              <li>
+                Calculate the distance to that vertex from the starting vertex
+              </li>
+              <li>
+                If the distance is less than hat is currently stored in our distances object
+                <ul>
+                  <li>
+                    Update the distances object with new lower distance
+                  </li>
+                  <li>
+                    Update previous object to contain that vertex
+                  </li>
+                  <li>
+                    Enqueue the vertex with total distance from the start node
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
 </body>
 <script>
   class WeightedGraph {
@@ -42,6 +95,25 @@
       this.adjacencyList[v1].push({node: v2, weight})
       this.adjacencyList[v2].push({node: v1, weight})
     };
+  }
+
+  class PriorityQueue {
+    constructor () {
+      this.values = [];
+    }
+
+    enqueue (val, priority) {
+      this.values.push({val, priority});
+      this.sort();
+    }
+
+    dequeue () {
+      return this.values.shift();
+    }
+
+    sort () {
+      this.values.sort((a,b) => a.priority - b.priority);
+    }
   }
 
   const g = new WeightedGraph();
