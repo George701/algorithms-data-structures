@@ -27,7 +27,7 @@
       A problem is said to have <strong>overlapping subproblems</strong> if it can broken down into subproblems which are reused several times
     </p>
     <p>For example</p>
-    <h5>Fibonacci Sequence</h5>
+    <p>Fibonacci Sequence</p>
     <p>
       Every number after the first two is the sum of the two preceding once
     </p>
@@ -39,4 +39,13 @@
     </p>
   </article>
 </body>
+
+<script>
+  // Recursive solution
+  // O(2^N) - Very BAD! :(
+  const fibRecursive = (n) => {
+    if (n <= 2) return 1;
+    return fibRecursive(n-1) + fibRecursive(n-2);
+  };
+</script>
 </html>
