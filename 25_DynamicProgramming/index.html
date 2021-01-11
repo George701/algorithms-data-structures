@@ -54,6 +54,21 @@
       Sorting the results of expensive function call and returning the cached results when the same inputs occurs again
     </p>
   </article>
+
+  <article>
+    <h3>
+      Tabulation
+    </h3>
+    <p>
+      Sorting the result of a previous result in a "table" (usually an array)
+    </p>
+    <p>
+      Usually done using <strong>iteration</strong>
+    </p>
+    <p>
+      Better <strong>space complexity</strong> can be achieved using tabulation
+    </p>
+  </article>
 </body>
 
 <script>
@@ -73,11 +88,23 @@
   // }
 
   // O(N) - Very GOOD! :)
-  const fib = (n, memo=[undefined, 1,1]) => {
+  // Max stack size might be exceeded if number is too large
+  const fibMemo = (n, memo=[undefined, 1,1]) => {
     if (memo[n] !== undefined) return memo[n];
-    const res = fib(n-1, memo) + fib(n-2, memo);
+    const res = fibMemo(n-1, memo) + fibMemo(n-2, memo);
     memo[n] = res;
     return res;
+  }
+
+  // O(N) - Very GOOD! :)
+  // max stack size is never exceeded! :)
+  const fibTable = (n) => {
+    if (n <= 2) return 1;
+    let fibNumbers = [undefined,1,1];
+    for (let i = 3; i <= n; i++) {
+      fibNumbers[i] = fibNumbers[i-1] + fibNumbers[i-2];
+    }
+    return fibNumbers[n]
   }
 </script>
 </html>
