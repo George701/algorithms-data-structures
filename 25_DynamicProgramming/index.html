@@ -38,6 +38,22 @@
       A problem is said to have optimal substructure if an optimal solution can be constructed from optimal solutions of its subproblems
     </p>
   </article>
+
+  <article>
+    <h3>
+      Enter Dynamic Programming
+    </h3>
+    <p>
+      Using past knowledge to make solving a future problem easer
+    </p>
+
+    <h3>
+      Enter Memoization
+    </h3>
+    <p>
+      Sorting the results of expensive function call and returning the cached results when the same inputs occurs again
+    </p>
+  </article>
 </body>
 
 <script>
@@ -47,5 +63,21 @@
     if (n <= 2) return 1;
     return fibRecursive(n-1) + fibRecursive(n-2);
   };
+
+  // const fib = (n, memo=[]) => {
+  //   if (memo[n] !== undefined) return memo[n];
+  //   if (n <= 2) return 1;
+  //   const res = fib(n-1, memo) + fib(n-2, memo);
+  //   memo[n] = res;
+  //   return res;
+  // }
+
+  // O(N) - Very GOOD! :)
+  const fib = (n, memo=[undefined, 1,1]) => {
+    if (memo[n] !== undefined) return memo[n];
+    const res = fib(n-1, memo) + fib(n-2, memo);
+    memo[n] = res;
+    return res;
+  }
 </script>
 </html>
